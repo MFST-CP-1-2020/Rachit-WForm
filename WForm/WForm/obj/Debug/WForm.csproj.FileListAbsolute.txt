@@ -1,1 +1,2 @@
 E:\KB\MFInternalProjects\InternalProjects\TProjects\T2019\Projects\TCPractise\Rachit\WForm\WForm\WForm\bin\Debug\WForm.exe.config
+D:\Projects\WformCP\Rachit-WForm.git\WForm\WForm\bin\Debug\WForm.exe.config

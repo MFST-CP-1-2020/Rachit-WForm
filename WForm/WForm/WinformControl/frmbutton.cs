@@ -17,7 +17,23 @@ namespace WForm.WinformControl
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

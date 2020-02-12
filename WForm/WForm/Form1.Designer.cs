@@ -31,28 +31,29 @@
             this.components = new System.ComponentModel.Container();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.firstname_textbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lastname_textbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.fathername_textbox = new System.Windows.Forms.TextBox();
+            this.mothername_textbox = new System.Windows.Forms.TextBox();
+            this.phonenumber_textbox = new System.Windows.Forms.TextBox();
+            this.address_textbox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.c = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.output_grid = new System.Windows.Forms.DataGridView();
+            this.submit_button = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.state_combobox = new System.Windows.Forms.ComboBox();
+            this.country_combobox = new System.Windows.Forms.ComboBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.c)).BeginInit();
+            this.update_button = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.output_grid)).BeginInit();
             this.SuspendLayout();
             // 
             // toolTip1
@@ -68,12 +69,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "First Name";
             // 
-            // textBox1
+            // firstname_textbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(156, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 1;
+            this.firstname_textbox.Location = new System.Drawing.Point(156, 87);
+            this.firstname_textbox.Name = "firstname_textbox";
+            this.firstname_textbox.Size = new System.Drawing.Size(100, 22);
+            this.firstname_textbox.TabIndex = 1;
             // 
             // label2
             // 
@@ -84,12 +85,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Last Name";
             // 
-            // textBox2
+            // lastname_textbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(381, 87);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 3;
+            this.lastname_textbox.Location = new System.Drawing.Point(381, 87);
+            this.lastname_textbox.Name = "lastname_textbox";
+            this.lastname_textbox.Size = new System.Drawing.Size(100, 22);
+            this.lastname_textbox.TabIndex = 3;
             // 
             // label3
             // 
@@ -100,33 +101,33 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Fathers Name";
             // 
-            // textBox3
+            // fathername_textbox
             // 
-            this.textBox3.Location = new System.Drawing.Point(156, 141);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 5;
+            this.fathername_textbox.Location = new System.Drawing.Point(156, 141);
+            this.fathername_textbox.Name = "fathername_textbox";
+            this.fathername_textbox.Size = new System.Drawing.Size(100, 22);
+            this.fathername_textbox.TabIndex = 5;
             // 
-            // textBox4
+            // mothername_textbox
             // 
-            this.textBox4.Location = new System.Drawing.Point(381, 139);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 6;
+            this.mothername_textbox.Location = new System.Drawing.Point(381, 139);
+            this.mothername_textbox.Name = "mothername_textbox";
+            this.mothername_textbox.Size = new System.Drawing.Size(100, 22);
+            this.mothername_textbox.TabIndex = 6;
             // 
-            // textBox5
+            // phonenumber_textbox
             // 
-            this.textBox5.Location = new System.Drawing.Point(156, 209);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 7;
+            this.phonenumber_textbox.Location = new System.Drawing.Point(156, 209);
+            this.phonenumber_textbox.Name = "phonenumber_textbox";
+            this.phonenumber_textbox.Size = new System.Drawing.Size(100, 22);
+            this.phonenumber_textbox.TabIndex = 7;
             // 
-            // textBox6
+            // address_textbox
             // 
-            this.textBox6.Location = new System.Drawing.Point(381, 209);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 22);
-            this.textBox6.TabIndex = 8;
+            this.address_textbox.Location = new System.Drawing.Point(381, 209);
+            this.address_textbox.Name = "address_textbox";
+            this.address_textbox.Size = new System.Drawing.Size(100, 22);
+            this.address_textbox.TabIndex = 8;
             // 
             // label4
             // 
@@ -184,25 +185,25 @@
             this.label9.Text = "Country";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // c
+            // output_grid
             // 
-            this.c.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.c.Location = new System.Drawing.Point(503, 87);
-            this.c.Name = "c";
-            this.c.RowTemplate.Height = 24;
-            this.c.Size = new System.Drawing.Size(944, 261);
-            this.c.TabIndex = 18;
-            this.c.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.output_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.output_grid.Location = new System.Drawing.Point(551, 87);
+            this.output_grid.Name = "output_grid";
+            this.output_grid.RowTemplate.Height = 24;
+            this.output_grid.Size = new System.Drawing.Size(1042, 261);
+            this.output_grid.TabIndex = 18;
+            this.output_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // button1
+            // submit_button
             // 
-            this.button1.Location = new System.Drawing.Point(79, 342);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "submit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.submit_button.Location = new System.Drawing.Point(79, 338);
+            this.submit_button.Name = "submit_button";
+            this.submit_button.Size = new System.Drawing.Size(136, 27);
+            this.submit_button.TabIndex = 19;
+            this.submit_button.Text = "submit";
+            this.submit_button.UseVisualStyleBackColor = true;
+            this.submit_button.Click += new System.EventHandler(this.button1_Click);
             // 
             // label11
             // 
@@ -214,22 +215,22 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "Employee Registration Form";
             // 
-            // comboBox1
+            // state_combobox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(360, 283);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 23;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            this.state_combobox.FormattingEnabled = true;
+            this.state_combobox.Location = new System.Drawing.Point(360, 283);
+            this.state_combobox.Name = "state_combobox";
+            this.state_combobox.Size = new System.Drawing.Size(121, 24);
+            this.state_combobox.TabIndex = 23;
+            this.state_combobox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
-            // comboBox2
+            // country_combobox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(362, 345);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 24;
+            this.country_combobox.FormattingEnabled = true;
+            this.country_combobox.Location = new System.Drawing.Point(362, 345);
+            this.country_combobox.Name = "country_combobox";
+            this.country_combobox.Size = new System.Drawing.Size(121, 24);
+            this.country_combobox.TabIndex = 24;
             // 
             // radioButton1
             // 
@@ -253,37 +254,48 @@
             this.radioButton2.Text = "Female";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
+            // update_button
+            // 
+            this.update_button.Location = new System.Drawing.Point(79, 371);
+            this.update_button.Name = "update_button";
+            this.update_button.Size = new System.Drawing.Size(136, 28);
+            this.update_button.TabIndex = 27;
+            this.update_button.Text = "update";
+            this.update_button.UseVisualStyleBackColor = true;
+            this.update_button.Click += new System.EventHandler(this.button_update_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1523, 526);
+            this.ClientSize = new System.Drawing.Size(1640, 526);
+            this.Controls.Add(this.update_button);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.country_combobox);
+            this.Controls.Add(this.state_combobox);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.c);
+            this.Controls.Add(this.submit_button);
+            this.Controls.Add(this.output_grid);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.address_textbox);
+            this.Controls.Add(this.phonenumber_textbox);
+            this.Controls.Add(this.mothername_textbox);
+            this.Controls.Add(this.fathername_textbox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.lastname_textbox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.firstname_textbox);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.c)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.output_grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,27 +304,28 @@
         #endregion
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox firstname_textbox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox lastname_textbox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox fathername_textbox;
+        private System.Windows.Forms.TextBox mothername_textbox;
+        private System.Windows.Forms.TextBox phonenumber_textbox;
+        private System.Windows.Forms.TextBox address_textbox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView c;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView output_grid;
+        private System.Windows.Forms.Button submit_button;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox state_combobox;
+        private System.Windows.Forms.ComboBox country_combobox;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Button update_button;
     }
 }
 

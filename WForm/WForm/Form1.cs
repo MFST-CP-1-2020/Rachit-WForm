@@ -99,7 +99,7 @@ namespace WForm
             {
                 state.Rows.Add(12, "wales", 4);
                 state.Rows.Add(13, "scotland", 4);
-                state.Rows.Add(14, "wales", 4);
+                state.Rows.Add(14, "london", 4);
             }
             state_combobox.DisplayMember = "name";
             state_combobox.ValueMember = "id";
@@ -264,7 +264,6 @@ namespace WForm
                 mothername_textbox.Text = row.Cells[3].Value.ToString();
                 phonenumber_textbox.Text = row.Cells[4].Value.ToString();
                 address_textbox.Text = row.Cells[5].Value.ToString();
-                state_combobox.Text = row.Cells[6].Value.ToString();
                 country_combobox.Text = row.Cells[7].Value.ToString();
                 string gender = row.Cells[8].Value.ToString();
                 if (gender.Equals(radioButton1.Text))
@@ -274,6 +273,7 @@ namespace WForm
 
                 update_button.Enabled = true;
                 add_to_state();
+                state_combobox.Text = row.Cells[6].Value.ToString();
             }
             else
             {

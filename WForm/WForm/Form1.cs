@@ -15,7 +15,6 @@ namespace WForm
         
         int indexRow;                                                               //This stores the index of row through which from which information is loaded back to the input entries.
         DataTable user = new DataTable();                                           //Datatable that contains all the information to be displayed in the grid.
-        DataTable dt = new DataTable();                                             //Datatable that contains all the states and id
         DataTable state = new DataTable();                                          //Datatable that contains all the country names and id
         DataTable country = new DataTable();
         
@@ -58,36 +57,53 @@ namespace WForm
 
             state_combobox.Text = value;
             country_combobox.Text = value;
-
-
-
-
             update_button.Enabled = false;          //This disables the button
+            state.Clear();
         }
 
-        //This function is used to add rows to a datatable
-        public void addrow(int i,string s)
-        {
-            DataRow r = state.NewRow();
-            r["id"] = i;
-            r["Name"] = s;
-            state.Rows.Add(r);
-        }
 
-        //This function binds the state's to the combobox present in the form
         public void bindstate()
         {
             state.Columns.Add("id", typeof(int));           //id is the Valuemember
             state.Columns.Add("Name", typeof(string));         //name is the displaymember
-
+            state.Columns.Add("Foriegn_id", typeof(int));
+        }
+        public void add_to_state()
+        {
+            state.Clear();
+           // state.Rows.Add(0, "choose a state", 0);
             
-            addrow(0, "choose");
-            addrow(1, "UttarPradesh");
-            addrow(2, "Maharastra");
-            addrow(3, "Jammu");
-            addrow(4, "Kashmir");
+            
+            if (country_combobox.SelectedIndex==1)
+            {
+                //state.Rows.Add(0, "choose",0);
+                state.Rows.Add(1, "UttarPradesh", 1);
+                state.Rows.Add(2, "Maharastra", 1);
+                state.Rows.Add(3, "Jammu", 1);
+                state.Rows.Add(4, "Kashmir", 1);
+            }
+            else if (country_combobox.SelectedIndex==2)
+            {
+                state.Rows.Add(5, "new york", 2);
+                state.Rows.Add(6, "texas", 2);
+                state.Rows.Add(7, "california", 2);
+                state.Rows.Add(8, "florida", 2);
+            }
+            else if (country_combobox.SelectedIndex == 3)
+            {
+                state.Rows.Add(9, "tokoyo", 3);
+                state.Rows.Add(10, "chubu", 3);
+                state.Rows.Add(11, "shikoku", 3);
+            }
+            else
+            {
+                state.Rows.Add(12, "wales", 4);
+                state.Rows.Add(13, "scotland", 4);
+                state.Rows.Add(14, "wales", 4);
+            }
             state_combobox.DisplayMember = "name";
             state_combobox.ValueMember = "id";
+            state_combobox.ValueMember = "Foriegn_id";
             state_combobox.DataSource = state;
         }
 
@@ -95,11 +111,11 @@ namespace WForm
         public void makeuser()
         {
 
-            user.Columns.Add("First Name");
-            user.Columns.Add("Last Name");
-            user.Columns.Add("Father's Name");
-            user.Columns.Add("Mother's Name");
-            user.Columns.Add("Phone Number");
+            user.Columns.Add("First Name",typeof(string));
+            user.Columns.Add("Last Name",typeof(string));
+            user.Columns.Add("Father's Name",typeof(string));
+            user.Columns.Add("Mother's Name",typeof(string));
+            user.Columns.Add("Phone Number",typeof(long));
             user.Columns.Add("Address");
             user.Columns.Add("State");
             user.Columns.Add("Country");
@@ -156,8 +172,18 @@ namespace WForm
             
             }
             else
-                output_grid.Columns.Add(bttn_load);                                               
-            
+                output_grid.Columns.Add(bttn_load);
+            DataGridViewButtonColumn bttn_delete = new DataGridViewButtonColumn();
+            bttn_delete.HeaderText = "delete data";
+            bttn_delete.Text = "delete";
+            bttn_delete.Name = "bttn_delete";
+            bttn_delete.UseColumnTextForButtonValue = true;
+            if (output_grid.Columns.Contains(bttn_delete.Name = "bttn_delete"))
+            {
+
+            }
+            else
+                output_grid.Columns.Add(bttn_delete);
         }
 
 
@@ -170,12 +196,12 @@ namespace WForm
             country.Rows.Add(0, "choose");
             country.Rows.Add(1, "India");
             country.Rows.Add(2, "America");
-            country.Rows.Add(3, "Australia");
+            country.Rows.Add(3, "japan");
             country.Rows.Add(4, "England");
             country_combobox.DisplayMember = "name";
             country_combobox.ValueMember = "id";
             country_combobox.DataSource = country;
-        }
+            }
 
 
         public Form1()
@@ -219,6 +245,7 @@ namespace WForm
         {
             
             add_to_user();
+            state.Clear();
 
         }
 
@@ -226,25 +253,33 @@ namespace WForm
         //This function discribes the functionality of the load button that is present on the output grid
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            int indexcolmn = e.ColumnIndex;
             indexRow = e.RowIndex;
-            DataGridViewRow row = output_grid.Rows[indexRow];
-            firstname_textbox.Text = row.Cells[0].Value.ToString();
-            lastname_textbox.Text = row.Cells[1].Value.ToString();
-            fathername_textbox.Text = row.Cells[2].Value.ToString();
-            mothername_textbox.Text = row.Cells[3].Value.ToString();
-            phonenumber_textbox.Text = row.Cells[4].Value.ToString();
-            address_textbox.Text = row.Cells[5].Value.ToString();
-            state_combobox.Text = row.Cells[6].Value.ToString();
-            country_combobox.Text = row.Cells[7].Value.ToString();
-            string gender = row.Cells[8].Value.ToString();
-            if (gender.Equals(radioButton1.Text))
-                radioButton1.Checked = true;
+            if (indexcolmn == 9)
+            {
+                DataGridViewRow row = output_grid.Rows[indexRow];
+                firstname_textbox.Text = row.Cells[0].Value.ToString();
+                lastname_textbox.Text = row.Cells[1].Value.ToString();
+                fathername_textbox.Text = row.Cells[2].Value.ToString();
+                mothername_textbox.Text = row.Cells[3].Value.ToString();
+                phonenumber_textbox.Text = row.Cells[4].Value.ToString();
+                address_textbox.Text = row.Cells[5].Value.ToString();
+                state_combobox.Text = row.Cells[6].Value.ToString();
+                country_combobox.Text = row.Cells[7].Value.ToString();
+                string gender = row.Cells[8].Value.ToString();
+                if (gender.Equals(radioButton1.Text))
+                    radioButton1.Checked = true;
+                else
+                    radioButton2.Checked = true;
+
+                update_button.Enabled = true;
+                add_to_state();
+            }
             else
-                radioButton2.Checked = true;
+            {
+                output_grid.Rows.RemoveAt(indexRow);
 
-            update_button.Enabled = true;
-
+            }
         }
 
 
@@ -274,6 +309,26 @@ namespace WForm
         private void button_update_Click(object sender, EventArgs e)
         {
             update();
+        }
+
+        private void state_combobox_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void country_combobox_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void country_combobox_DropDownClosed(object sender, EventArgs e)
+        {
+            add_to_state();
+        }
+
+        private void country_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // add_to_state();
         }
     }
 }

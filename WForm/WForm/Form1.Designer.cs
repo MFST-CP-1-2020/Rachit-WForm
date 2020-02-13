@@ -191,7 +191,7 @@
             this.output_grid.Location = new System.Drawing.Point(551, 87);
             this.output_grid.Name = "output_grid";
             this.output_grid.RowTemplate.Height = 24;
-            this.output_grid.Size = new System.Drawing.Size(1042, 261);
+            this.output_grid.Size = new System.Drawing.Size(1147, 261);
             this.output_grid.TabIndex = 18;
             this.output_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -223,6 +223,7 @@
             this.state_combobox.Size = new System.Drawing.Size(121, 24);
             this.state_combobox.TabIndex = 23;
             this.state_combobox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            this.state_combobox.MouseCaptureChanged += new System.EventHandler(this.state_combobox_MouseCaptureChanged);
             // 
             // country_combobox
             // 
@@ -231,6 +232,9 @@
             this.country_combobox.Name = "country_combobox";
             this.country_combobox.Size = new System.Drawing.Size(121, 24);
             this.country_combobox.TabIndex = 24;
+            this.country_combobox.SelectedIndexChanged += new System.EventHandler(this.country_combobox_SelectedIndexChanged);
+            this.country_combobox.DropDownClosed += new System.EventHandler(this.country_combobox_DropDownClosed);
+            this.country_combobox.MouseCaptureChanged += new System.EventHandler(this.country_combobox_MouseCaptureChanged);
             // 
             // radioButton1
             // 
@@ -268,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1640, 526);
+            this.ClientSize = new System.Drawing.Size(1738, 526);
             this.Controls.Add(this.update_button);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);

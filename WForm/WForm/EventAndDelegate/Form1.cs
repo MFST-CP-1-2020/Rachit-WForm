@@ -12,13 +12,20 @@ namespace WForm
 {
     public partial class Form1 : Form
     {
-        
+       
+       
         int indexRow;                                                               //This stores the index of row through which from which information is loaded back to the input entries.
         DataTable user = new DataTable();                                           //Datatable that contains all the information to be displayed in the grid.
         DataTable state = new DataTable();                                          //Datatable that contains all the country names and id
         DataTable country = new DataTable();
         
+
+        
         //This function binds the content of datatables to the grid
+
+
+
+        
         public void bindcontent()
         {
             bindstate();

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventAndDelegate\Class1.cs" />
     <Compile Include="EventAndDelegate\Form2.cs">
       <SubType>Form</SubType>
     </Compile>

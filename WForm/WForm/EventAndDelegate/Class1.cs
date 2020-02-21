@@ -22,6 +22,13 @@ namespace WForm.EventAndDelegate
 
         }
                 
+        public void parameter(string parameter_name,string datatype,string value)
+        {
+
+            comm.Parameters.Add(parameter_name, System.Data.SqlDbType.NVarChar);
+            comm.Parameters[parameter_name].Value = value;
+
+        }
 
         public void openconnection()
         {

@@ -23,6 +23,12 @@ namespace WForm.EventAndDelegate
         {
 
         }
+
+
+        /// <summary>
+        ///This function returns an Employee object that contains that values for the properties of the object 
+        /// </summary>
+        
         public Employee add_to_obj()
         {
 
@@ -52,14 +58,31 @@ namespace WForm.EventAndDelegate
 
         }
 
+
+        //This function get executed when the submit button is clicked
         private void submit_button_Click(object sender, EventArgs e)
         {
             Employee obj = new Employee();
             obj = add_to_obj();
             obj.add();
             MessageBox.Show("Added successfully");
+            clearentries();
         }
 
+        //This function clears the entries of the form
+        private void clearentries()
+        {
+            firstname_textbox.Clear();
+            lastname_textbox.Clear();
+            phnenumber_textbox.Clear();
+            state_textbox.Clear();
+            city_textbox.Clear();
+            employeeid_text.Clear();
+            male_radiobutton.Checked = false;
+            female_radiobutton.Checked = false;
+        }
+
+        //This function gets executed when the view button is clicked
         private void view_button_Click(object sender, EventArgs e)
         {
             Employee ee = new Employee();
@@ -68,6 +91,8 @@ namespace WForm.EventAndDelegate
             outputgrid.DataSource = dt;
         }
 
+
+        //This function is called when the delete button is clicked
         private void delete_button_Click(object sender, EventArgs e)
         {
             Employee ee = new Employee();
@@ -75,6 +100,8 @@ namespace WForm.EventAndDelegate
             MessageBox.Show("deleted sucessfully");
         }
 
+
+        //This function is called when the update button is clicked
         private void update_button_Click(object sender, EventArgs e)
         {
             Employee ee = new Employee();
@@ -97,169 +124,61 @@ namespace WForm.EventAndDelegate
 
         public string city { get; set; }
 
-        SHL obj = new SHL();
+        SqlHelperClass obj = new SqlHelperClass();
+
+
+        
+        // This function returns a datatable that contains the databse
         public DataTable get()
         {
-
-            SqlConnection conn;
-            SqlCommand comm;
-
-            string connstring = @"database=TestDB;server=RACHIT-PC\SQLEXPRESS;User Id=sa;Password=mindfire@1";
-            conn = new SqlConnection(connstring);
-            conn.Open();
-
-            comm = new SqlCommand();
-            comm.Connection = conn;
-            string query = "get";
-            comm.CommandType = CommandType.StoredProcedure;
-            comm.CommandText = query;
-            SqlDataAdapter a = new SqlDataAdapter(comm);
-            DataTable t = new DataTable();
-            a.Fill(t);
-            return t;
-
-            /*
-             obj.openconnection();
+            
+            
+             obj.Openconnection();
              DataTable t = new DataTable();
-             t=obj.sqladapter();
-             obj.closeconnection();
-             return t;*/
+             t=obj.SqlAdapter();
+             obj.Closeconnection();
+             return t;
         }
 
+
+        //This function is uesd to add the values from the entries tot he database
         public void add()
         {
+
             
-             //MessageBox.Show("function called");
-            SqlConnection conn;
-            SqlCommand comm;
+            obj.Openconnection();
 
-            string connstring = @"database=TestDB;server=RACHIT-PC\SQLEXPRESS;User Id=sa;Password=mindfire@1";
-            conn = new SqlConnection(connstring);
-            conn.Open();
-
-            comm = new SqlCommand();
-            comm.Connection = conn;
-            comm.CommandType = CommandType.StoredProcedure;
-            comm.CommandText = "dbo.insertintousingscalar";
-            // SqlParameter proll = new SqlParameter();
-            //proll.ParameterName = "@eroll";
-            //proll.SqlDbType = SqlDbType.Int;
-            //proll.Direction = ParameterDirection.Input;
-            
-            
-            comm.Parameters.Add("@Firstname", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@Firstname"].Value = fname;
-            comm.Parameters.Add("@Lastname", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@Lastname"].Value = lname;
-            comm.Parameters.Add("@Employeeid", System.Data.SqlDbType.Int);
-            comm.Parameters["@Employeeid"].Value = eid;
-            comm.Parameters.Add("@Phone_number", System.Data.SqlDbType.BigInt);
-            comm.Parameters["@Phone_number"].Value = phne_number;
-            comm.Parameters.Add("@State", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@State"].Value = state;
-            comm.Parameters.Add("@City", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@City"].Value = city;
-            comm.Parameters.Add("@Gender", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@Gender"].Value = gender;
-
-            //  comm.Parameters.Add("@lname", System.Data.SqlDbType.NVarChar);
-            //comm.Parameters["@lname"].Value = lname;
-
-            /*
-            proll.ParameterName = "@efname";
-            proll.SqlDbType = SqlDbType.NVarChar;
-            proll.Direction = ParameterDirection.Input;
-            string cmd = $"insert into Employee values(@gender,@city,@state,@phne_number,@lname,@fname,@eid);";
-            MessageBox.Show(fname);
-            comm.CommandText = cmd;
-            comm.ExecuteNonQuery();
-            
-            MessageBox.Show("function exited");
-            */
-            // string cmd = $"insert into Employee values('{gender}','{city}','{state}',{phne_number},'{lname}','{fname}',{eid});select Employeeid from Employee where Employeeid={eid}";
-
-            /*
-            obj.openconnection();
-            int i = obj.executescaler(cmd);
+            int i = obj.ExecuteScaler(obj.Addparameterforinsert(this));
             MessageBox.Show(i.ToString());
-            obj.closeconnection();
-            */
-           Int32 i= Convert.ToInt32(comm.ExecuteScalar());
-            MessageBox.Show(i.ToString());
-
+            obj.Closeconnection();
+            
+           
         }
+
+        //This function is used to delete a row from the database
         public void delete(int eid)
         {
-            SqlConnection conn;
-            SqlCommand comm;
-            string connstring = @"database=TestDB;server=RACHIT-PC\SQLEXPRESS;User Id=sa;Password=mindfire@1";
-            conn = new SqlConnection(connstring);
-            conn.Open();
-            comm = new SqlCommand();
-            comm.CommandType = CommandType.StoredProcedure;
-            comm.Connection = conn;
-            comm.Parameters.Add("@Employeeid", System.Data.SqlDbType.Int);
-            comm.Parameters["@Employeeid"].Value = eid;
-            string commandtext = "deletefrom";
-            comm.CommandText = commandtext;
-            comm.ExecuteNonQuery();
+
+           
 
 
-
-            /*
-            obj.openconnection();
-            string query = $"delete from Employee where Employeeid={eid}";
-            obj.ExecuteNonquery(query);
-            obj.closeconnection();
-            */
+            
+            obj.Openconnection();
+           
+            obj.ExecuteNonquery(obj.Addparameterfordelete(eid),"deletefrom");
+            obj.Closeconnection();
+            
 
         }
+
+        //This function is used to update a particular entry in the database
         public void update()
         {
+           
+            obj.Openconnection();
+            obj.ExecuteNonquery(obj.Addparameterforupdate(this),"update");
+            obj.Closeconnection();
             
-             SqlConnection conn;
-             SqlCommand comm;
-             
-            string connstring = @"database=TestDB;server=RACHIT-PC\SQLEXPRESS;User Id=sa;Password=mindfire@1";
-            
-            conn = new SqlConnection(connstring);
-             conn.Open();
-
-             comm = new SqlCommand();
-             comm.Connection = conn;
-
-            
-            comm.Parameters.Add("@Firstname", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@Firstname"].Value = fname;
-            comm.Parameters.Add("@Lastname", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@Lastname"].Value = lname;
-            comm.Parameters.Add("@Employeeid", System.Data.SqlDbType.Int);
-            comm.Parameters["@Employeeid"].Value = eid;
-            comm.Parameters.Add("@Phone_number", System.Data.SqlDbType.BigInt);
-            comm.Parameters["@Phone_number"].Value = phne_number;
-            comm.Parameters.Add("@State", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@State"].Value = state;
-            comm.Parameters.Add("@City", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@City"].Value = city;
-            comm.Parameters.Add("@Gender", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@Gender"].Value = gender;
-
-            string update = "update";
-            comm.CommandType = CommandType.StoredProcedure;
-            comm.CommandText = update;
-            //string query = $"update Employee set gender=@gender,city=@city,State=@state,Phonenumber=@phne_number,lastname=@lname,firstname=@fname where employeeid=@eid";
-            ///comm.CommandText = query;
-            comm.ExecuteNonQuery();
-
-
-            /*
-            string query = $"update Employee set gender='{gender}',city='{city}',State='{state}',Phonenumber={phne_number},lastname='{lname}',firstname='{fname}' where employeeid={eid}";
-            string spname = @"dbo.[inertinto]";
-
-            obj.openconnection();
-            obj.ExecuteNonquery(spname);
-            obj.closeconnection();
-            */
 
 
         }

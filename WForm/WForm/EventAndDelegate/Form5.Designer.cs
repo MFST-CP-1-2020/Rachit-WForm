@@ -28,246 +28,246 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.submit_button = new System.Windows.Forms.Button();
-            this.outputgrid = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.male_radiobutton = new System.Windows.Forms.RadioButton();
-            this.female_radiobutton = new System.Windows.Forms.RadioButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.phnenumber_textbox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lastname_textbox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.firstname_textbox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.state_textbox = new System.Windows.Forms.TextBox();
-            this.city_textbox = new System.Windows.Forms.TextBox();
-            this.employeeid_text = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.view_button = new System.Windows.Forms.Button();
-            this.delete_button = new System.Windows.Forms.Button();
-            this.update_button = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.outputgrid)).BeginInit();
+            this.bttn_submit = new System.Windows.Forms.Button();
+            this.grid_output = new System.Windows.Forms.DataGridView();
+            this.lbl_City = new System.Windows.Forms.Label();
+            this.lbl_State = new System.Windows.Forms.Label();
+            this.radiobttn_Male = new System.Windows.Forms.RadioButton();
+            this.radiobttn_Female = new System.Windows.Forms.RadioButton();
+            this.lbl_Gender = new System.Windows.Forms.Label();
+            this.lbl_Heading = new System.Windows.Forms.Label();
+            this.txt_Phonenumber = new System.Windows.Forms.TextBox();
+            this.lbl_Phonenumber = new System.Windows.Forms.Label();
+            this.txt_Lastname = new System.Windows.Forms.TextBox();
+            this.lbl_Lastname = new System.Windows.Forms.Label();
+            this.txt_Firstname = new System.Windows.Forms.TextBox();
+            this.lbl_Firstname = new System.Windows.Forms.Label();
+            this.txt_State = new System.Windows.Forms.TextBox();
+            this.txt_City = new System.Windows.Forms.TextBox();
+            this.txt_Employeeid = new System.Windows.Forms.TextBox();
+            this.lbl_Employeeid = new System.Windows.Forms.Label();
+            this.bttn_view = new System.Windows.Forms.Button();
+            this.bttn_delete = new System.Windows.Forms.Button();
+            this.bttn_update = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_output)).BeginInit();
             this.SuspendLayout();
             // 
-            // submit_button
+            // bttn_submit
             // 
-            this.submit_button.Location = new System.Drawing.Point(91, 422);
-            this.submit_button.Name = "submit_button";
-            this.submit_button.Size = new System.Drawing.Size(94, 35);
-            this.submit_button.TabIndex = 38;
-            this.submit_button.Text = "Add";
-            this.submit_button.UseVisualStyleBackColor = true;
-            this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
+            this.bttn_submit.Location = new System.Drawing.Point(91, 422);
+            this.bttn_submit.Name = "bttn_submit";
+            this.bttn_submit.Size = new System.Drawing.Size(94, 35);
+            this.bttn_submit.TabIndex = 38;
+            this.bttn_submit.Text = "Add";
+            this.bttn_submit.UseVisualStyleBackColor = true;
+            this.bttn_submit.Click += new System.EventHandler(this.submit_button_Click);
             // 
-            // outputgrid
+            // grid_output
             // 
-            this.outputgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.outputgrid.Location = new System.Drawing.Point(543, 119);
-            this.outputgrid.Name = "outputgrid";
-            this.outputgrid.RowTemplate.Height = 24;
-            this.outputgrid.Size = new System.Drawing.Size(762, 357);
-            this.outputgrid.TabIndex = 36;
+            this.grid_output.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_output.Location = new System.Drawing.Point(543, 119);
+            this.grid_output.Name = "grid_output";
+            this.grid_output.RowTemplate.Height = 24;
+            this.grid_output.Size = new System.Drawing.Size(762, 357);
+            this.grid_output.TabIndex = 36;
             // 
-            // label9
+            // lbl_City
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(193, 337);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 17);
-            this.label9.TabIndex = 33;
-            this.label9.Text = "city";
+            this.lbl_City.AutoSize = true;
+            this.lbl_City.Location = new System.Drawing.Point(193, 337);
+            this.lbl_City.Name = "lbl_City";
+            this.lbl_City.Size = new System.Drawing.Size(29, 17);
+            this.lbl_City.TabIndex = 33;
+            this.lbl_City.Text = "city";
             // 
-            // label8
+            // lbl_State
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(193, 295);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 17);
-            this.label8.TabIndex = 32;
-            this.label8.Text = "state";
+            this.lbl_State.AutoSize = true;
+            this.lbl_State.Location = new System.Drawing.Point(193, 295);
+            this.lbl_State.Name = "lbl_State";
+            this.lbl_State.Size = new System.Drawing.Size(39, 17);
+            this.lbl_State.TabIndex = 32;
+            this.lbl_State.Text = "state";
             // 
-            // male_radiobutton
+            // radiobttn_Male
             // 
-            this.male_radiobutton.AutoSize = true;
-            this.male_radiobutton.Location = new System.Drawing.Point(273, 246);
-            this.male_radiobutton.Name = "male_radiobutton";
-            this.male_radiobutton.Size = new System.Drawing.Size(59, 21);
-            this.male_radiobutton.TabIndex = 31;
-            this.male_radiobutton.TabStop = true;
-            this.male_radiobutton.Text = "male";
-            this.male_radiobutton.UseVisualStyleBackColor = true;
+            this.radiobttn_Male.AutoSize = true;
+            this.radiobttn_Male.Location = new System.Drawing.Point(273, 246);
+            this.radiobttn_Male.Name = "radiobttn_Male";
+            this.radiobttn_Male.Size = new System.Drawing.Size(59, 21);
+            this.radiobttn_Male.TabIndex = 31;
+            this.radiobttn_Male.TabStop = true;
+            this.radiobttn_Male.Text = "male";
+            this.radiobttn_Male.UseVisualStyleBackColor = true;
             // 
-            // female_radiobutton
+            // radiobttn_Female
             // 
-            this.female_radiobutton.AutoSize = true;
-            this.female_radiobutton.Location = new System.Drawing.Point(342, 248);
-            this.female_radiobutton.Name = "female_radiobutton";
-            this.female_radiobutton.Size = new System.Drawing.Size(71, 21);
-            this.female_radiobutton.TabIndex = 30;
-            this.female_radiobutton.TabStop = true;
-            this.female_radiobutton.Text = "female";
-            this.female_radiobutton.UseVisualStyleBackColor = true;
+            this.radiobttn_Female.AutoSize = true;
+            this.radiobttn_Female.Location = new System.Drawing.Point(342, 248);
+            this.radiobttn_Female.Name = "radiobttn_Female";
+            this.radiobttn_Female.Size = new System.Drawing.Size(71, 21);
+            this.radiobttn_Female.TabIndex = 30;
+            this.radiobttn_Female.TabStop = true;
+            this.radiobttn_Female.Text = "female";
+            this.radiobttn_Female.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // lbl_Gender
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(193, 248);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 17);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "gender";
+            this.lbl_Gender.AutoSize = true;
+            this.lbl_Gender.Location = new System.Drawing.Point(193, 248);
+            this.lbl_Gender.Name = "lbl_Gender";
+            this.lbl_Gender.Size = new System.Drawing.Size(53, 17);
+            this.lbl_Gender.TabIndex = 29;
+            this.lbl_Gender.Text = "gender";
             // 
-            // label5
+            // lbl_Heading
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.label5.Location = new System.Drawing.Point(187, 55);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(353, 48);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Registration Form";
+            this.lbl_Heading.AutoSize = true;
+            this.lbl_Heading.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.lbl_Heading.Location = new System.Drawing.Point(187, 55);
+            this.lbl_Heading.Name = "lbl_Heading";
+            this.lbl_Heading.Size = new System.Drawing.Size(353, 48);
+            this.lbl_Heading.TabIndex = 28;
+            this.lbl_Heading.Text = "Registration Form";
             // 
-            // phnenumber_textbox
+            // txt_Phonenumber
             // 
-            this.phnenumber_textbox.Location = new System.Drawing.Point(291, 202);
-            this.phnenumber_textbox.Name = "phnenumber_textbox";
-            this.phnenumber_textbox.Size = new System.Drawing.Size(100, 22);
-            this.phnenumber_textbox.TabIndex = 25;
+            this.txt_Phonenumber.Location = new System.Drawing.Point(291, 202);
+            this.txt_Phonenumber.Name = "txt_Phonenumber";
+            this.txt_Phonenumber.Size = new System.Drawing.Size(100, 22);
+            this.txt_Phonenumber.TabIndex = 25;
             // 
-            // label3
+            // lbl_Phonenumber
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(192, 202);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 17);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "phone number";
+            this.lbl_Phonenumber.AutoSize = true;
+            this.lbl_Phonenumber.Location = new System.Drawing.Point(192, 202);
+            this.lbl_Phonenumber.Name = "lbl_Phonenumber";
+            this.lbl_Phonenumber.Size = new System.Drawing.Size(100, 17);
+            this.lbl_Phonenumber.TabIndex = 24;
+            this.lbl_Phonenumber.Text = "phone number";
             // 
-            // lastname_textbox
+            // txt_Lastname
             // 
-            this.lastname_textbox.Location = new System.Drawing.Point(291, 161);
-            this.lastname_textbox.Name = "lastname_textbox";
-            this.lastname_textbox.Size = new System.Drawing.Size(100, 22);
-            this.lastname_textbox.TabIndex = 23;
+            this.txt_Lastname.Location = new System.Drawing.Point(291, 161);
+            this.txt_Lastname.Name = "txt_Lastname";
+            this.txt_Lastname.Size = new System.Drawing.Size(100, 22);
+            this.txt_Lastname.TabIndex = 23;
             // 
-            // label2
+            // lbl_Lastname
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(192, 161);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Last Name";
+            this.lbl_Lastname.AutoSize = true;
+            this.lbl_Lastname.Location = new System.Drawing.Point(192, 161);
+            this.lbl_Lastname.Name = "lbl_Lastname";
+            this.lbl_Lastname.Size = new System.Drawing.Size(76, 17);
+            this.lbl_Lastname.TabIndex = 22;
+            this.lbl_Lastname.Text = "Last Name";
             // 
-            // firstname_textbox
+            // txt_Firstname
             // 
-            this.firstname_textbox.Location = new System.Drawing.Point(291, 119);
-            this.firstname_textbox.Name = "firstname_textbox";
-            this.firstname_textbox.Size = new System.Drawing.Size(100, 22);
-            this.firstname_textbox.TabIndex = 21;
+            this.txt_Firstname.Location = new System.Drawing.Point(291, 119);
+            this.txt_Firstname.Name = "txt_Firstname";
+            this.txt_Firstname.Size = new System.Drawing.Size(100, 22);
+            this.txt_Firstname.TabIndex = 21;
             // 
-            // label1
+            // lbl_Firstname
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(192, 122);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "First Name";
+            this.lbl_Firstname.AutoSize = true;
+            this.lbl_Firstname.Location = new System.Drawing.Point(192, 122);
+            this.lbl_Firstname.Name = "lbl_Firstname";
+            this.lbl_Firstname.Size = new System.Drawing.Size(76, 17);
+            this.lbl_Firstname.TabIndex = 20;
+            this.lbl_Firstname.Text = "First Name";
             // 
-            // state_textbox
+            // txt_State
             // 
-            this.state_textbox.Location = new System.Drawing.Point(291, 295);
-            this.state_textbox.Name = "state_textbox";
-            this.state_textbox.Size = new System.Drawing.Size(100, 22);
-            this.state_textbox.TabIndex = 39;
+            this.txt_State.Location = new System.Drawing.Point(291, 295);
+            this.txt_State.Name = "txt_State";
+            this.txt_State.Size = new System.Drawing.Size(100, 22);
+            this.txt_State.TabIndex = 39;
             // 
-            // city_textbox
+            // txt_City
             // 
-            this.city_textbox.Location = new System.Drawing.Point(291, 337);
-            this.city_textbox.Name = "city_textbox";
-            this.city_textbox.Size = new System.Drawing.Size(100, 22);
-            this.city_textbox.TabIndex = 40;
+            this.txt_City.Location = new System.Drawing.Point(291, 337);
+            this.txt_City.Name = "txt_City";
+            this.txt_City.Size = new System.Drawing.Size(100, 22);
+            this.txt_City.TabIndex = 40;
             // 
-            // employeeid_text
+            // txt_Employeeid
             // 
-            this.employeeid_text.Location = new System.Drawing.Point(291, 365);
-            this.employeeid_text.Name = "employeeid_text";
-            this.employeeid_text.Size = new System.Drawing.Size(100, 22);
-            this.employeeid_text.TabIndex = 42;
+            this.txt_Employeeid.Location = new System.Drawing.Point(291, 365);
+            this.txt_Employeeid.Name = "txt_Employeeid";
+            this.txt_Employeeid.Size = new System.Drawing.Size(100, 22);
+            this.txt_Employeeid.TabIndex = 42;
             // 
-            // label4
+            // lbl_Employeeid
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(192, 368);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 17);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "Employee id";
+            this.lbl_Employeeid.AutoSize = true;
+            this.lbl_Employeeid.Location = new System.Drawing.Point(192, 368);
+            this.lbl_Employeeid.Name = "lbl_Employeeid";
+            this.lbl_Employeeid.Size = new System.Drawing.Size(85, 17);
+            this.lbl_Employeeid.TabIndex = 41;
+            this.lbl_Employeeid.Text = "Employee id";
             // 
-            // view_button
+            // bttn_view
             // 
-            this.view_button.Location = new System.Drawing.Point(291, 422);
-            this.view_button.Name = "view_button";
-            this.view_button.Size = new System.Drawing.Size(94, 35);
-            this.view_button.TabIndex = 43;
-            this.view_button.Text = "View";
-            this.view_button.UseVisualStyleBackColor = true;
-            this.view_button.Click += new System.EventHandler(this.view_button_Click);
+            this.bttn_view.Location = new System.Drawing.Point(291, 422);
+            this.bttn_view.Name = "bttn_view";
+            this.bttn_view.Size = new System.Drawing.Size(94, 35);
+            this.bttn_view.TabIndex = 43;
+            this.bttn_view.Text = "View";
+            this.bttn_view.UseVisualStyleBackColor = true;
+            this.bttn_view.Click += new System.EventHandler(this.view_button_Click);
             // 
-            // delete_button
+            // bttn_delete
             // 
-            this.delete_button.Location = new System.Drawing.Point(191, 422);
-            this.delete_button.Name = "delete_button";
-            this.delete_button.Size = new System.Drawing.Size(94, 35);
-            this.delete_button.TabIndex = 44;
-            this.delete_button.Text = "delete";
-            this.delete_button.UseVisualStyleBackColor = true;
-            this.delete_button.Click += new System.EventHandler(this.delete_button_Click);
+            this.bttn_delete.Location = new System.Drawing.Point(191, 422);
+            this.bttn_delete.Name = "bttn_delete";
+            this.bttn_delete.Size = new System.Drawing.Size(94, 35);
+            this.bttn_delete.TabIndex = 44;
+            this.bttn_delete.Text = "delete";
+            this.bttn_delete.UseVisualStyleBackColor = true;
+            this.bttn_delete.Click += new System.EventHandler(this.delete_button_Click);
             // 
-            // update_button
+            // bttn_update
             // 
-            this.update_button.Location = new System.Drawing.Point(391, 422);
-            this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(94, 35);
-            this.update_button.TabIndex = 45;
-            this.update_button.Text = "update";
-            this.update_button.UseVisualStyleBackColor = true;
-            this.update_button.Click += new System.EventHandler(this.update_button_Click);
+            this.bttn_update.Location = new System.Drawing.Point(391, 422);
+            this.bttn_update.Name = "bttn_update";
+            this.bttn_update.Size = new System.Drawing.Size(94, 35);
+            this.bttn_update.TabIndex = 45;
+            this.bttn_update.Text = "update";
+            this.bttn_update.UseVisualStyleBackColor = true;
+            this.bttn_update.Click += new System.EventHandler(this.update_button_Click);
             // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1493, 531);
-            this.Controls.Add(this.update_button);
-            this.Controls.Add(this.delete_button);
-            this.Controls.Add(this.view_button);
-            this.Controls.Add(this.employeeid_text);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.city_textbox);
-            this.Controls.Add(this.state_textbox);
-            this.Controls.Add(this.submit_button);
-            this.Controls.Add(this.outputgrid);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.male_radiobutton);
-            this.Controls.Add(this.female_radiobutton);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.phnenumber_textbox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.lastname_textbox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.firstname_textbox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.bttn_update);
+            this.Controls.Add(this.bttn_delete);
+            this.Controls.Add(this.bttn_view);
+            this.Controls.Add(this.txt_Employeeid);
+            this.Controls.Add(this.lbl_Employeeid);
+            this.Controls.Add(this.txt_City);
+            this.Controls.Add(this.txt_State);
+            this.Controls.Add(this.bttn_submit);
+            this.Controls.Add(this.grid_output);
+            this.Controls.Add(this.lbl_City);
+            this.Controls.Add(this.lbl_State);
+            this.Controls.Add(this.radiobttn_Male);
+            this.Controls.Add(this.radiobttn_Female);
+            this.Controls.Add(this.lbl_Gender);
+            this.Controls.Add(this.lbl_Heading);
+            this.Controls.Add(this.txt_Phonenumber);
+            this.Controls.Add(this.lbl_Phonenumber);
+            this.Controls.Add(this.txt_Lastname);
+            this.Controls.Add(this.lbl_Lastname);
+            this.Controls.Add(this.txt_Firstname);
+            this.Controls.Add(this.lbl_Firstname);
             this.Name = "Form5";
             this.Text = "Form5";
             this.Load += new System.EventHandler(this.Form5_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.outputgrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_output)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,26 +275,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Button submit_button;
-        private System.Windows.Forms.DataGridView outputgrid;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RadioButton male_radiobutton;
-        private System.Windows.Forms.RadioButton female_radiobutton;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox phnenumber_textbox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox lastname_textbox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox firstname_textbox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox state_textbox;
-        private System.Windows.Forms.TextBox city_textbox;
-        private System.Windows.Forms.TextBox employeeid_text;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button view_button;
-        private System.Windows.Forms.Button delete_button;
-        private System.Windows.Forms.Button update_button;
+        private System.Windows.Forms.Button bttn_submit;
+        private System.Windows.Forms.DataGridView grid_output;
+        private System.Windows.Forms.Label lbl_City;
+        private System.Windows.Forms.Label lbl_State;
+        private System.Windows.Forms.RadioButton radiobttn_Male;
+        private System.Windows.Forms.RadioButton radiobttn_Female;
+        private System.Windows.Forms.Label lbl_Gender;
+        private System.Windows.Forms.Label lbl_Heading;
+        private System.Windows.Forms.TextBox txt_Phonenumber;
+        private System.Windows.Forms.Label lbl_Phonenumber;
+        private System.Windows.Forms.TextBox txt_Lastname;
+        private System.Windows.Forms.Label lbl_Lastname;
+        private System.Windows.Forms.TextBox txt_Firstname;
+        private System.Windows.Forms.Label lbl_Firstname;
+        private System.Windows.Forms.TextBox txt_State;
+        private System.Windows.Forms.TextBox txt_City;
+        private System.Windows.Forms.TextBox txt_Employeeid;
+        private System.Windows.Forms.Label lbl_Employeeid;
+        private System.Windows.Forms.Button bttn_view;
+        private System.Windows.Forms.Button bttn_delete;
+        private System.Windows.Forms.Button bttn_update;
     }
 }

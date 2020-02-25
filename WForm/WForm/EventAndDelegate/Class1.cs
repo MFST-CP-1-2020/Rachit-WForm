@@ -17,12 +17,19 @@ namespace WForm.EventAndDelegate
         SqlConnection conn;
         
         string connstring = @"database=TestDB;server=RACHIT-PC\SQLEXPRESS;User Id=sa;Password=mindfire@1";
+
+        /// <summary>
+        /// This constructor is used to initialize the connection object of the SqlHelperClass
+        /// </summary>
         public SqlHelperClass()
         {
             conn = new SqlConnection(connstring);
           
         }
-                //This function adds parameter to the sqlcommand object comm
+        /// <summary>
+        /// This function adds parameter to the sqlcommand object comm
+        /// </summary>
+     
         public void Parameter(SqlCommand comm,string parameter_name,SqlDbType datatype,object value,ParameterDirection direction)
         {
             
@@ -32,73 +39,30 @@ namespace WForm.EventAndDelegate
             
           }
 
-        //this function adds the parameters to the command sqlcommand object
-        public SqlCommand Addparameterforinsert(Employee e)
-        {
-            SqlCommand cmd = new SqlCommand();
-            
-            string fname = "@Firstname";
-            string lname = "@Lastname";
-            string phnenum = "@Phone_number";
-            string state = "@State";
-            string city = "@City";
-            string gender = "@Gender";
-            
-            Parameter(cmd, fname, SqlDbType.NVarChar, e.fname, ParameterDirection.Input);
-            Parameter(cmd, lname, SqlDbType.NVarChar, e.lname, ParameterDirection.Input);
-            Parameter(cmd, phnenum, SqlDbType.BigInt, e.phne_number, ParameterDirection.Input);
-            Parameter(cmd, state, SqlDbType.NVarChar, e.state, ParameterDirection.Input);
-            Parameter(cmd, city, SqlDbType.NVarChar, e.city, ParameterDirection.Input);
-            Parameter(cmd, gender, SqlDbType.NVarChar, e.gender, ParameterDirection.Input);
-            return cmd;
-        }
-
-        //adds Employeeid parameter to the cmd object to delete that from the database
-        public SqlCommand Addparameterfordelete(int e)
-        {
-            SqlCommand cmd = new SqlCommand();
-            string eid = "@Employeeid";
-            Parameter(cmd, eid, SqlDbType.Int, e, ParameterDirection.Input);
-
-            return cmd;
-        }
 
 
 
-        //adds 7 parameters to the cmd object to update the value in the database
-        public SqlCommand Addparameterforupdate(Employee e)
-        {
-            SqlCommand cmd = new SqlCommand();
-            string eid = "@Employeeid";
-            string fname = "@Firstname";
-            string lname = "@Lastname";
-            string phnenum = "@Phone_number";
-            string state = "@State";
-            string city = "@City";
-            string gender = "@Gender";
-            Parameter(cmd, eid, SqlDbType.Int, e.eid, ParameterDirection.Input);
-            Parameter(cmd, fname, SqlDbType.NVarChar, e.fname, ParameterDirection.Input);
-            Parameter(cmd, lname, SqlDbType.NVarChar, e.lname, ParameterDirection.Input);
-            Parameter(cmd, phnenum, SqlDbType.BigInt, e.phne_number, ParameterDirection.Input);
-            Parameter(cmd, state, SqlDbType.NVarChar, e.state, ParameterDirection.Input);
-            Parameter(cmd, city, SqlDbType.NVarChar, e.city, ParameterDirection.Input);
-            Parameter(cmd, gender, SqlDbType.NVarChar, e.gender, ParameterDirection.Input);
-            return cmd;
 
-        }
-
-        //opens the connection
+        /// <summary>
+        /// opens the connection
+        /// </summary>
         public void Openconnection()
         {
             conn.Open();
         }
 
 
-        //closes the conncetion
-        public  void Closeconnection()
+        /// <summary>
+        /// closes the conncetion
+        /// </summary>
+        public void Closeconnection()
         {
             conn.Close();
         }
+
+        /// <summary>
+        /// This function executes the stored procedure insertintousingscalar and returns the PK of the newly added row
+        /// </summary>
         public int ExecuteScaler(SqlCommand comm)
         {
             comm.Connection = conn;
@@ -107,6 +71,10 @@ namespace WForm.EventAndDelegate
            Int32 res = Convert.ToInt32(comm.ExecuteScalar());
             return (int)res;
         }
+
+        /// <summary>
+        ///This function executes the stored procedure that is passed to it as parameter using ExecuteNonQuery() 
+        /// </summary>
         public void ExecuteNonquery(SqlCommand comm,string commandText)
         {
             comm.Connection = conn;
@@ -115,6 +83,10 @@ namespace WForm.EventAndDelegate
             comm.ExecuteNonQuery();
             MessageBox.Show("Executed");
         }
+
+        /// <summary>
+        /// This function is used to execute the stored procedure get and returns a datatable that contains the result returned from executing the query 
+        /// </summary>
         public DataTable SqlAdapter()
         {
             SqlCommand comm = new SqlCommand();

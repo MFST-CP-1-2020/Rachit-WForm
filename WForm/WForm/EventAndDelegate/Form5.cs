@@ -26,90 +26,103 @@ namespace WForm.EventAndDelegate
 
 
         /// <summary>
-        ///This function returns an Employee object that contains that values for the properties of the object 
+        ///This function returns an Employee object that contains the values for the properties of the object 
         /// </summary>
-        
-        public Employee add_to_obj()
+        public Employee add_to_SqlHelperobj()
         {
 
 
-            Employee obj = new Employee();
-            obj.fname = firstname_textbox.Text;
-            obj.lname = lastname_textbox.Text;
-                     obj.state = state_textbox.Text;
-            obj.city = city_textbox.Text;
+            Employee SqlHelperobj = new Employee();
+            SqlHelperobj.fname = txt_Firstname.Text;
+            SqlHelperobj.lname = txt_Lastname.Text;
+                     SqlHelperobj.state = txt_State.Text;
+            SqlHelperobj.city = txt_City.Text;
             try
             {
-                obj.eid = int.Parse(employeeid_text.Text);
+                SqlHelperobj.eid = int.Parse(txt_Employeeid.Text);
 
-                obj.phne_number = long.Parse(phnenumber_textbox.Text);
+                SqlHelperobj.phne_number = long.Parse(txt_Phonenumber.Text);
             }
             catch (Exception)
             {
 
             }
-            if (male_radiobutton.Checked)
-                obj.gender = male_radiobutton.Text;
+            if (radiobttn_Male.Checked)
+                SqlHelperobj.gender = radiobttn_Male.Text;
             else
-                obj.gender = female_radiobutton.Text;
-            return obj;
+                SqlHelperobj.gender = radiobttn_Female.Text;
+            return SqlHelperobj;
 
 
 
         }
 
 
-        //This function get executed when the submit button is clicked
+        /// <summary>
+        /// This function get executed when the submit button is clicked
+        /// </summary>
         private void submit_button_Click(object sender, EventArgs e)
         {
-            Employee obj = new Employee();
-            obj = add_to_obj();
-            obj.add();
+            Employee SqlHelperobj = new Employee();
+            SqlHelperobj = add_to_SqlHelperobj();
+            SqlHelperobj.add();
             MessageBox.Show("Added successfully");
             clearentries();
         }
 
-        //This function clears the entries of the form
+        /// <summary>
+        /// This function clears the entries of the form
+        /// </summary>
         private void clearentries()
         {
-            firstname_textbox.Clear();
-            lastname_textbox.Clear();
-            phnenumber_textbox.Clear();
-            state_textbox.Clear();
-            city_textbox.Clear();
-            employeeid_text.Clear();
-            male_radiobutton.Checked = false;
-            female_radiobutton.Checked = false;
+            txt_Firstname.Clear();
+            txt_Lastname.Clear();
+            txt_Phonenumber.Clear();
+            txt_State.Clear();
+            txt_City.Clear();
+            txt_Employeeid.Clear();
+            radiobttn_Male.Checked = false;
+            radiobttn_Female.Checked = false;
         }
 
-        //This function gets executed when the view button is clicked
+        /// <summary>
+        /// This function gets executed when the view button is clicked
+        /// </summary>
         private void view_button_Click(object sender, EventArgs e)
         {
             Employee ee = new Employee();
             DataTable dt = new DataTable();
             dt = ee.get();
-            outputgrid.DataSource = dt;
+            grid_output.DataSource = dt;
         }
 
 
-        //This function is called when the delete button is clicked
+        /// <summary>
+        /// This function is called when the delete button is clicked
+        /// </summary>
         private void delete_button_Click(object sender, EventArgs e)
         {
             Employee ee = new Employee();
-            ee.delete(int.Parse(employeeid_text.Text));
+            ee.delete(int.Parse(txt_Employeeid.Text));
             MessageBox.Show("deleted sucessfully");
         }
 
-
-        //This function is called when the update button is clicked
+        /// <summary>
+        /// This function is called when the update button is clicked
+        /// </summary>
         private void update_button_Click(object sender, EventArgs e)
         {
             Employee ee = new Employee();
-            ee = add_to_obj();
+            ee = add_to_SqlHelperobj();
             ee.update();
             MessageBox.Show("updated successfully");
         }
     }
+
+
+    /// <summary>
+    /// This class contains the properties of an Employee and thee various function that are needed to perform the desired operations
+    /// </summary>
     public class Employee
     {
         public int eid { get; set; }
@@ -124,63 +137,124 @@ namespace WForm.EventAndDelegate
 
         public string city { get; set; }
 
-        SqlHelperClass obj = new SqlHelperClass();
+        SqlHelperClass SqlHelperobj = new SqlHelperClass();
 
 
-        
-        // This function returns a datatable that contains the databse
+
+        /// <summary>
+        ///  This function returns a datatable that contains the databse
+        /// </summary>
         public DataTable get()
         {
             
             
-             obj.Openconnection();
+             SqlHelperobj.Openconnection();
              DataTable t = new DataTable();
-             t=obj.SqlAdapter();
-             obj.Closeconnection();
+             t=SqlHelperobj.SqlAdapter();
+             SqlHelperobj.Closeconnection();
              return t;
         }
 
-
-        //This function is uesd to add the values from the entries tot he database
+        /// <summary>
+        /// This function is uesd to add the values from the entries tot he database
+        /// </summary>
         public void add()
         {
 
             
-            obj.Openconnection();
+            SqlHelperobj.Openconnection();
 
-            int i = obj.ExecuteScaler(obj.Addparameterforinsert(this));
+            int i = SqlHelperobj.ExecuteScaler(Addparameterforinsert(this));
             MessageBox.Show(i.ToString());
-            obj.Closeconnection();
+            SqlHelperobj.Closeconnection();
             
            
         }
 
-        //This function is used to delete a row from the database
+
+        /// <summary>
+        /// This function adds the paramters to a SqlCommand object and returns that object
+        /// </summary>
+        /// <param name="e"> An Employee object that contains the values to be added</param>
+        /// <returns>A SqlCommand Object that contains the needed paramters</returns>
+        public SqlCommand Addparameterforinsert(Employee e)
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            string fname = "@Firstname";
+            string lname = "@Lastname";
+            string phnenum = "@Phone_number";
+            string state = "@State";
+            string city = "@City";
+            string gender = "@Gender";
+
+            SqlHelperobj.Parameter(cmd, fname, SqlDbType.NVarChar, e.fname, ParameterDirection.Input);
+            SqlHelperobj.Parameter(cmd, lname, SqlDbType.NVarChar, e.lname, ParameterDirection.Input);
+            SqlHelperobj.Parameter(cmd, phnenum, SqlDbType.BigInt, e.phne_number, ParameterDirection.Input);
+            SqlHelperobj.Parameter(cmd, state, SqlDbType.NVarChar, e.state, ParameterDirection.Input);
+            SqlHelperobj.Parameter(cmd, city, SqlDbType.NVarChar, e.city, ParameterDirection.Input);
+            SqlHelperobj.Parameter(cmd, gender, SqlDbType.NVarChar, e.gender, ParameterDirection.Input);
+            return cmd;
+        }
+
+
+        /// <summary>
+        /// This function is used to delete a row from the database
+        /// </summary>
+        /// <param name="eid"> The id of the Employee who's data we wish to delete from the database</param>
         public void delete(int eid)
         {
-
-           
-
-
-            
-            obj.Openconnection();
-           
-            obj.ExecuteNonquery(obj.Addparameterfordelete(eid),"deletefrom");
-            obj.Closeconnection();
-            
-
+            SqlHelperobj.Openconnection();  
+            SqlHelperobj.ExecuteNonquery(Addparameterfordelete(eid),"deletefrom");
+            SqlHelperobj.Closeconnection();
         }
+        /// <summary>
+        /// adds Employeeid parameter to the cmd object to delete that from the database
+        /// </summary>
+        /// <param name="e">The Employeeid of the Employee who's data we wish to delete from the database</param>
+        /// <returns> A SqlCommand object that contains the Employeeid parameter</returns>
+        public SqlCommand Addparameterfordelete(int e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            string eid = "@Employeeid";
+            SqlHelperobj.Parameter(cmd, eid, SqlDbType.Int, e, ParameterDirection.Input);
 
-        //This function is used to update a particular entry in the database
+            return cmd;
+        }
+        /// <summary>
+        /// This function is used to update a particular entry in the database
+        /// </summary>
         public void update()
         {
-           
-            obj.Openconnection();
-            obj.ExecuteNonquery(obj.Addparameterforupdate(this),"update");
-            obj.Closeconnection();
-            
-
+            SqlHelperobj.Openconnection();
+            SqlHelperobj.ExecuteNonquery(Addparameterforupdate(this),"update");
+            SqlHelperobj.Closeconnection();
+        }
+        /// <summary>
+        /// adds 7 parameters to the cmd object to update the value in the database
+        /// </summary>
+        /// <param name="e">Employee object that contains the values that are to updated in the database</param>
+        /// <returns>a SqlCommand object that contains the required parameters</returns>
+        public SqlCommand Addparameterforupdate(Employee e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            string eid = "@Employeeid";
+            string fname = "@Firstname";
+            string lname = "@Lastname";
+            string phnenum = "@Phone_number";
+            string state = "@State";
+            string city = "@City";
+            string gender = "@Gender";
+            SqlHelperobj.Parameter(cmd, eid, SqlDbType.Int, e.eid, ParameterDirection.Input);
+            SqlHelperobj.Parameter(cmd, fname, SqlDbType.NVarChar, e.fname, ParameterDirection.Input);
+            SqlHelperobj.Parameter(cmd, lname, SqlDbType.NVarChar, e.lname, ParameterDirection.Input);
+            SqlHelperobj.Parameter(cmd, phnenum, SqlDbType.BigInt, e.phne_number, ParameterDirection.Input);
+            SqlHelperobj.Parameter(cmd, state, SqlDbType.NVarChar, e.state, ParameterDirection.Input);
+            SqlHelperobj.Parameter(cmd, city, SqlDbType.NVarChar, e.city, ParameterDirection.Input);
+            SqlHelperobj.Parameter(cmd, gender, SqlDbType.NVarChar, e.gender, ParameterDirection.Input);
+            return cmd;
 
         }
+
     }
 }

@@ -1,0 +1,5 @@
+D:\Projects\WformCP\Rachit-WForm.git\WForm\DTO\bin\Debug\DTO.dll
+D:\Projects\WformCP\Rachit-WForm.git\WForm\DTO\bin\Debug\DTO.pdb
+D:\Projects\WformCP\Rachit-WForm.git\WForm\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+D:\Projects\WformCP\Rachit-WForm.git\WForm\DTO\obj\Debug\DTO.dll
+D:\Projects\WformCP\Rachit-WForm.git\WForm\DTO\obj\Debug\DTO.pdb

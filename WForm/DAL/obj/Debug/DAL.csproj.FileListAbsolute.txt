@@ -1,0 +1,5 @@
+D:\Projects\WformCP\Rachit-WForm.git\WForm\DAL\bin\Debug\DAL.dll
+D:\Projects\WformCP\Rachit-WForm.git\WForm\DAL\bin\Debug\DAL.pdb
+D:\Projects\WformCP\Rachit-WForm.git\WForm\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Projects\WformCP\Rachit-WForm.git\WForm\DAL\obj\Debug\DAL.dll
+D:\Projects\WformCP\Rachit-WForm.git\WForm\DAL\obj\Debug\DAL.pdb

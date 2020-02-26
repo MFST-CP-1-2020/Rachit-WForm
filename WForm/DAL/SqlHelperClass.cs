@@ -5,13 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
-using System.Windows.Forms;
-
-namespace WForm.EventAndDelegate
+namespace DAL
 {
-    /// <summary>
-    /// This class provides functions for Addparameter,executenonquery,sqldataadpater,executescalar
-    /// </summary>
     public class SqlHelperClass
     {
         SqlConnection conn;
@@ -29,8 +24,8 @@ namespace WForm.EventAndDelegate
         /// <summary>
         /// This function adds parameter to the sqlcommand object comm
         /// </summary>
-     
-        public void Parameter(string parameter_name,SqlDbType datatype,object value,ParameterDirection direction)
+
+        public void Parameter(string parameter_name, SqlDbType datatype, object value, ParameterDirection direction)
         {
             SqlParameter parameterobj = new SqlParameter();
             parameterobj.ParameterName = parameter_name;
@@ -38,11 +33,11 @@ namespace WForm.EventAndDelegate
             parameterobj.Value = value;
             parameterobj.Direction = direction;
             parameter_list.Add(parameterobj);
-            
-          }
+
+        }
 
 
-        
+
 
         /// <summary>
         /// opens the connection
@@ -64,15 +59,15 @@ namespace WForm.EventAndDelegate
         /// <summary>
         /// This function executes the stored procedure insertintousingscalar and returns the PK of the newly added row
         /// </summary>
-        public int ExecuteScaler()
+        public int ExecuteScaler(string s)
         {
             Openconnection();
             SqlCommand comm = new SqlCommand();
             comm.Connection = conn;
             comm.CommandType = CommandType.StoredProcedure;
-            comm.CommandText = "insertintousingscalar";
+            comm.CommandText = s;
             comm.Parameters.AddRange(parameter_list.ToArray());
-           Int32 res = Convert.ToInt32(comm.ExecuteScalar());
+            Int32 res = Convert.ToInt32(comm.ExecuteScalar());
             Closeconnection();
             parameter_list.Clear();
             return (int)res;
@@ -90,20 +85,20 @@ namespace WForm.EventAndDelegate
             comm.CommandText = commandText;
             comm.Parameters.AddRange(parameter_list.ToArray());
             comm.ExecuteNonQuery();
-            MessageBox.Show("Executed");
+            //MessageBox.Show("Executed");
             Closeconnection();
         }
 
         /// <summary>
         /// This function is used to execute the stored procedure get and returns a datatable that contains the result returned from executing the query 
         /// </summary>
-        public DataTable SqlAdapter()
+        public DataTable SqlAdapter(string s)
         {
             Openconnection();
             SqlCommand comm = new SqlCommand();
             comm.Connection = conn;
             comm.CommandType = CommandType.StoredProcedure;
-            comm.CommandText = "get";
+            comm.CommandText = s;
             SqlDataAdapter a = new SqlDataAdapter(comm);
             DataTable t = new DataTable();
             a.Fill(t);
@@ -111,6 +106,7 @@ namespace WForm.EventAndDelegate
             return t;
         }
 
-        
+
     }
+
 }

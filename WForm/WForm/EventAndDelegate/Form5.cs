@@ -148,10 +148,8 @@ namespace WForm.EventAndDelegate
         {
             
             
-             SqlHelperobj.Openconnection();
              DataTable t = new DataTable();
              t=SqlHelperobj.SqlAdapter();
-             SqlHelperobj.Closeconnection();
              return t;
         }
 
@@ -161,12 +159,10 @@ namespace WForm.EventAndDelegate
         public void add()
         {
 
-            
-            SqlHelperobj.Openconnection();
 
-            int i = SqlHelperobj.ExecuteScaler(Addparameterforinsert(this));
+            Addparameterforinsert();
+            int i = SqlHelperobj.ExecuteScaler();
             MessageBox.Show(i.ToString());
-            SqlHelperobj.Closeconnection();
             
            
         }
@@ -177,10 +173,9 @@ namespace WForm.EventAndDelegate
         /// </summary>
         /// <param name="e"> An Employee object that contains the values to be added</param>
         /// <returns>A SqlCommand Object that contains the needed paramters</returns>
-        public SqlCommand Addparameterforinsert(Employee e)
+        public void Addparameterforinsert()
         {
-            SqlCommand cmd = new SqlCommand();
-
+            
             string fname = "@Firstname";
             string lname = "@Lastname";
             string phnenum = "@Phone_number";
@@ -188,13 +183,12 @@ namespace WForm.EventAndDelegate
             string city = "@City";
             string gender = "@Gender";
 
-            SqlHelperobj.Parameter(cmd, fname, SqlDbType.NVarChar, e.fname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(cmd, lname, SqlDbType.NVarChar, e.lname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(cmd, phnenum, SqlDbType.BigInt, e.phne_number, ParameterDirection.Input);
-            SqlHelperobj.Parameter(cmd, state, SqlDbType.NVarChar, e.state, ParameterDirection.Input);
-            SqlHelperobj.Parameter(cmd, city, SqlDbType.NVarChar, e.city, ParameterDirection.Input);
-            SqlHelperobj.Parameter(cmd, gender, SqlDbType.NVarChar, e.gender, ParameterDirection.Input);
-            return cmd;
+            SqlHelperobj.Parameter( fname, SqlDbType.NVarChar, this.fname, ParameterDirection.Input);
+            SqlHelperobj.Parameter( lname, SqlDbType.NVarChar, this.lname, ParameterDirection.Input);
+            SqlHelperobj.Parameter( phnenum, SqlDbType.BigInt, this.phne_number, ParameterDirection.Input);
+            SqlHelperobj.Parameter( state, SqlDbType.NVarChar, this.state, ParameterDirection.Input);
+            SqlHelperobj.Parameter( city, SqlDbType.NVarChar, this.city, ParameterDirection.Input);
+            SqlHelperobj.Parameter( gender, SqlDbType.NVarChar, this.gender, ParameterDirection.Input);
         }
 
 
@@ -204,40 +198,37 @@ namespace WForm.EventAndDelegate
         /// <param name="eid"> The id of the Employee who's data we wish to delete from the database</param>
         public void delete(int eid)
         {
-            SqlHelperobj.Openconnection();  
-            SqlHelperobj.ExecuteNonquery(Addparameterfordelete(eid),"deletefrom");
-            SqlHelperobj.Closeconnection();
+            
+            Addparameterfordelete(eid);
+            SqlHelperobj.ExecuteNonquery("deletefrom");
+            
         }
         /// <summary>
         /// adds Employeeid parameter to the cmd object to delete that from the database
         /// </summary>
         /// <param name="e">The Employeeid of the Employee who's data we wish to delete from the database</param>
         /// <returns> A SqlCommand object that contains the Employeeid parameter</returns>
-        public SqlCommand Addparameterfordelete(int e)
+        public void Addparameterfordelete(int e)
         {
-            SqlCommand cmd = new SqlCommand();
             string eid = "@Employeeid";
-            SqlHelperobj.Parameter(cmd, eid, SqlDbType.Int, e, ParameterDirection.Input);
+            SqlHelperobj.Parameter( eid, SqlDbType.Int, e, ParameterDirection.Input);
 
-            return cmd;
         }
         /// <summary>
         /// This function is used to update a particular entry in the database
         /// </summary>
         public void update()
         {
-            SqlHelperobj.Openconnection();
-            SqlHelperobj.ExecuteNonquery(Addparameterforupdate(this),"update");
-            SqlHelperobj.Closeconnection();
+            Addparameterforupdate(this);
+            SqlHelperobj.ExecuteNonquery("update");
         }
         /// <summary>
         /// adds 7 parameters to the cmd object to update the value in the database
         /// </summary>
         /// <param name="e">Employee object that contains the values that are to updated in the database</param>
         /// <returns>a SqlCommand object that contains the required parameters</returns>
-        public SqlCommand Addparameterforupdate(Employee e)
+        public void Addparameterforupdate(Employee e)
         {
-            SqlCommand cmd = new SqlCommand();
             string eid = "@Employeeid";
             string fname = "@Firstname";
             string lname = "@Lastname";
@@ -245,15 +236,14 @@ namespace WForm.EventAndDelegate
             string state = "@State";
             string city = "@City";
             string gender = "@Gender";
-            SqlHelperobj.Parameter(cmd, eid, SqlDbType.Int, e.eid, ParameterDirection.Input);
-            SqlHelperobj.Parameter(cmd, fname, SqlDbType.NVarChar, e.fname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(cmd, lname, SqlDbType.NVarChar, e.lname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(cmd, phnenum, SqlDbType.BigInt, e.phne_number, ParameterDirection.Input);
-            SqlHelperobj.Parameter(cmd, state, SqlDbType.NVarChar, e.state, ParameterDirection.Input);
-            SqlHelperobj.Parameter(cmd, city, SqlDbType.NVarChar, e.city, ParameterDirection.Input);
-            SqlHelperobj.Parameter(cmd, gender, SqlDbType.NVarChar, e.gender, ParameterDirection.Input);
-            return cmd;
-
+            SqlHelperobj.Parameter( eid, SqlDbType.Int, e.eid, ParameterDirection.Input);
+            SqlHelperobj.Parameter( fname, SqlDbType.NVarChar, e.fname, ParameterDirection.Input);
+            SqlHelperobj.Parameter( lname, SqlDbType.NVarChar, e.lname, ParameterDirection.Input);
+            SqlHelperobj.Parameter( phnenum, SqlDbType.BigInt, e.phne_number, ParameterDirection.Input);
+            SqlHelperobj.Parameter( state, SqlDbType.NVarChar, e.state, ParameterDirection.Input);
+            SqlHelperobj.Parameter( city, SqlDbType.NVarChar, e.city, ParameterDirection.Input);
+            SqlHelperobj.Parameter( gender, SqlDbType.NVarChar, e.gender, ParameterDirection.Input);
+        
         }
 
     }

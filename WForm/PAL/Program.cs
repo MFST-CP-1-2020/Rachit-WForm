@@ -16,7 +16,7 @@ namespace PAL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Studentregistrationforrm());
+            Application.Run(new Form1());
         }
     }
 }

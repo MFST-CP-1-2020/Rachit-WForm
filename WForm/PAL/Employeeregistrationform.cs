@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BAL;
+using DTO;
 namespace PAL
 {
     public partial class Form1 : Form
@@ -28,11 +29,11 @@ namespace PAL
         /// <summary>
         ///This function returns an Employee object that contains the values for the properties of the object 
         /// </summary>
-        public EmployeeBAL add_to_SqlHelperobj()
+        public EmployeeDTO add_to_SqlHelperobj()
         {
 
 
-            EmployeeBAL SqlHelperobj = new EmployeeBAL();
+            EmployeeDTO SqlHelperobj = new EmployeeDTO();
             SqlHelperobj.fname = txt_Firstname.Text;
             SqlHelperobj.lname = txt_Lastname.Text;
             SqlHelperobj.state = txt_State.Text;
@@ -40,7 +41,14 @@ namespace PAL
             try
             {
                 SqlHelperobj.eid = int.Parse(txt_Employeeid.Text);
+            }
+            catch(Exception)
+            {
 
+            }
+
+             try
+                { 
                 SqlHelperobj.phne_number = long.Parse(txt_Phonenumber.Text);
             }
             catch (Exception)
@@ -63,9 +71,10 @@ namespace PAL
         /// </summary>
         private void submit_button_Click(object sender, EventArgs e)
         {
+
             EmployeeBAL SqlHelperobj = new EmployeeBAL();
-            SqlHelperobj = add_to_SqlHelperobj();
-            SqlHelperobj.add();
+            //SqlHelperobj = add_to_SqlHelperobj();
+            SqlHelperobj.addusingDAL(add_to_SqlHelperobj());
             MessageBox.Show("Added successfully");
             clearentries();
         }
@@ -100,10 +109,12 @@ namespace PAL
         private void bttn_view_Click(object sender, EventArgs e)
         {
             EmployeeBAL ee = new EmployeeBAL();
+            
+            
             DataTable dt = new DataTable();
             dt = ee.get();
             grid_output.DataSource = dt;
-
+            
         }
 
         private void bttn_delete_Click(object sender, EventArgs e)
@@ -117,10 +128,13 @@ namespace PAL
         private void bttn_update_Click(object sender, EventArgs e)
         {
             EmployeeBAL ee = new EmployeeBAL();
-            ee = add_to_SqlHelperobj();
-            ee.update();
-            MessageBox.Show("updated successfully");
+            //ee = add_to_SqlHelperobj();
 
+
+            
+            ee.update(add_to_SqlHelperobj());
+            MessageBox.Show("updated successfully");
+            
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BAL;
+using DTO;
 namespace PAL
 {
     public partial class Studentregistrationforrm : Form
@@ -31,9 +32,9 @@ namespace PAL
         /// <summary>
         ///This function returns an Employee object that contains the values for the properties of the object 
         /// </summary>
-        public StudentBAL add_to_SqlHelperobj()
+        public StudentDTO add_to_SqlHelperobj()
         {
-            StudentBAL SqlHelperobj = new StudentBAL();
+            StudentDTO SqlHelperobj = new StudentDTO();
             SqlHelperobj.fname = txt_Firstname.Text;
             SqlHelperobj.lname = txt_Lastname.Text;
             SqlHelperobj.state = txt_State.Text;
@@ -46,7 +47,7 @@ namespace PAL
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Invalid number");
             }
             if (radiobttn_Male.Checked)
                 SqlHelperobj.gender = radiobttn_Male.Text;
@@ -110,8 +111,9 @@ namespace PAL
         private void bttn_update_Click(object sender, EventArgs e)
         {
             StudentBAL ee = new StudentBAL();
-            ee = add_to_SqlHelperobj();
-            ee.update();
+            //ee = add_to_SqlHelperobj();
+            ee.update(add_to_SqlHelperobj());
+           
             MessageBox.Show("updated successfully");
 
         }
@@ -119,8 +121,8 @@ namespace PAL
         private void bttn_submit_Click(object sender, EventArgs e)
         {
             StudentBAL SqlHelperobj = new StudentBAL();
-            SqlHelperobj = add_to_SqlHelperobj();
-            SqlHelperobj.add();
+            //SqlHelperobj = add_to_SqlHelperobj();
+            SqlHelperobj.add(add_to_SqlHelperobj());
             MessageBox.Show("Added successfully");
             clearentries();
         

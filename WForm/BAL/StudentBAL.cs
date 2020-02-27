@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL;
 using System.Data.SqlClient;
 using System.Data;
+using DTO;
 namespace BAL
 {
     public class StudentBAL
@@ -41,11 +42,11 @@ namespace BAL
         /// <summary>
         /// This function is uesd to add the values from the entries tot he database
         /// </summary>
-        public void add()
+        public void add(StudentDTO dtoobj)
         {
 
 
-            Addparameterforinsert();
+            Addparameterforinsert(dtoobj);
             int i = SqlHelperobj.ExecuteScaler("insertintousingscalarstudent");
             
      
@@ -57,7 +58,7 @@ namespace BAL
         /// </summary>
         /// <param name="e"> An Employee object that contains the values to be added</param>
         /// <returns>A SqlCommand Object that contains the needed paramters</returns>
-        public void Addparameterforinsert()
+        public void Addparameterforinsert(StudentDTO dtoobj)
         {
 
             string fname = "@Firstname";
@@ -67,12 +68,12 @@ namespace BAL
             string city = "@City";
             string gender = "@Gender";
 
-            SqlHelperobj.Parameter(fname, SqlDbType.NVarChar, this.fname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(lname, SqlDbType.NVarChar, this.lname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(phnenum, SqlDbType.BigInt, this.phne_number, ParameterDirection.Input);
-            SqlHelperobj.Parameter(state, SqlDbType.NVarChar, this.state, ParameterDirection.Input);
-            SqlHelperobj.Parameter(city, SqlDbType.NVarChar, this.city, ParameterDirection.Input);
-            SqlHelperobj.Parameter(gender, SqlDbType.NVarChar, this.gender, ParameterDirection.Input);
+            SqlHelperobj.Parameter(fname, SqlDbType.NVarChar, dtoobj.fname, ParameterDirection.Input);
+            SqlHelperobj.Parameter(lname, SqlDbType.NVarChar, dtoobj.lname, ParameterDirection.Input);
+            SqlHelperobj.Parameter(phnenum, SqlDbType.BigInt, dtoobj.phne_number, ParameterDirection.Input);
+            SqlHelperobj.Parameter(state, SqlDbType.NVarChar, dtoobj.state, ParameterDirection.Input);
+            SqlHelperobj.Parameter(city, SqlDbType.NVarChar, dtoobj.city, ParameterDirection.Input);
+            SqlHelperobj.Parameter(gender, SqlDbType.NVarChar, dtoobj.gender, ParameterDirection.Input);
         }
 
 
@@ -101,9 +102,9 @@ namespace BAL
         /// <summary>
         /// This function is used to update a particular entry in the database
         /// </summary>
-        public void update()
+        public void update(StudentDTO dtoobj)
         {
-            Addparameterforupdate(this);
+            Addparameterforupdate(dtoobj);
             SqlHelperobj.ExecuteNonquery("updatefromstudent");
         }
         /// <summary>
@@ -111,7 +112,7 @@ namespace BAL
         /// </summary>
         /// <param name="e">Employee object that contains the values that are to updated in the database</param>
         /// <returns>a SqlCommand object that contains the required parameters</returns>
-        public void Addparameterforupdate(StudentBAL e)
+        public void Addparameterforupdate(StudentDTO e)
         {
             string sid = "@Studentid";
             string fname = "@Firstname";

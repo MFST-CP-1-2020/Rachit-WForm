@@ -7,3 +7,5 @@ D:\Projects\WformCP\Rachit-WForm.git\WForm\BAL\bin\Debug\DTO.pdb
 D:\Projects\WformCP\Rachit-WForm.git\WForm\BAL\obj\Debug\BAL.csprojResolveAssemblyReference.cache
 D:\Projects\WformCP\Rachit-WForm.git\WForm\BAL\obj\Debug\BAL.dll
 D:\Projects\WformCP\Rachit-WForm.git\WForm\BAL\obj\Debug\BAL.pdb
+D:\Projects\WformCP\Rachit-WForm.git\WForm\BAL\bin\Debug\EntityFramework.dll
+D:\Projects\WformCP\Rachit-WForm.git\WForm\BAL\bin\Debug\EntityFramework.xml

@@ -9,6 +9,7 @@ namespace DAL
 {
     public class SqlHelperClass
     {
+
         SqlConnection conn;
         List<SqlParameter> parameter_list;
         string connstring = @"database=TestDB;server=RACHIT-PC\SQLEXPRESS;User Id=sa;Password=mindfire@1";

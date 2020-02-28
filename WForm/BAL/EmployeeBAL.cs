@@ -11,25 +11,12 @@ namespace BAL
 {
     public class EmployeeBAL
     {
-        public int eid { get; set; }
-        public string fname { get; set; }
-        public string lname { get; set; }
+        
 
-        public long phne_number { get; set; }
-
-        public string gender { get; set; }
-
-        public string state { get; set; }
-
-        public string city { get; set; }
-
-        SqlHelperClass SqlHelperobj = new SqlHelperClass();
+    
 
 
-
-
-
-        public void addusingDAL(EmployeeDTO obj)
+        public void addusingDAL(Employee obj)
         {
             EmployeeDAL dalobj = new EmployeeDAL();
             dalobj.add(obj);
@@ -46,48 +33,11 @@ namespace BAL
             
             DataTable t = new DataTable();
             t = eobj.get();
-            return t;
+             return t;
+            
         }
 
-        /// <summary>
-        /// This function is uesd to add the values from the entries tot he database
-        /// </summary>
-        public void add(EmployeeDTO dtoobj)
-        {
-
-
-            Addparameterforinsert(dtoobj);
-            int i = SqlHelperobj.ExecuteScaler("insertintousingscalar");
-            //MessageBox.Show(i.ToString());
-
-
-        }
-
-
-        /// <summary>
-        /// This function adds the paramters to a SqlCommand object and returns that object
-        /// </summary>
-        /// <param name="e"> An Employee object that contains the values to be added</param>
-        /// <returns>A SqlCommand Object that contains the needed paramters</returns>
-        public void Addparameterforinsert(EmployeeDTO dtoobj)
-        {
-
-            string fname = "@Firstname";
-            string lname = "@Lastname";
-            string phnenum = "@Phone_number";
-            string state = "@State";
-            string city = "@City";
-            string gender = "@Gender";
-
-            SqlHelperobj.Parameter(fname, SqlDbType.NVarChar, dtoobj.fname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(lname, SqlDbType.NVarChar, dtoobj.lname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(phnenum, SqlDbType.BigInt, dtoobj.phne_number, ParameterDirection.Input);
-            SqlHelperobj.Parameter(state, SqlDbType.NVarChar, dtoobj.state, ParameterDirection.Input);
-            SqlHelperobj.Parameter(city, SqlDbType.NVarChar, dtoobj.city, ParameterDirection.Input);
-            SqlHelperobj.Parameter(gender, SqlDbType.NVarChar, dtoobj.gender, ParameterDirection.Input);
-        }
-
-
+        
         /// <summary>
         /// This function is used to delete a row from the database
         /// </summary>
@@ -101,20 +51,9 @@ namespace BAL
 
         }
         /// <summary>
-        /// adds Employeeid parameter to the cmd object to delete that from the database
-        /// </summary>
-        /// <param name="e">The Employeeid of the Employee who's data we wish to delete from the database</param>
-        /// <returns> A SqlCommand object that contains the Employeeid parameter</returns>
-        public void Addparameterfordelete(int e)
-        {
-            string eid = "@Employeeid";
-            SqlHelperobj.Parameter(eid, SqlDbType.Int, e, ParameterDirection.Input);
-
-        }
-        /// <summary>
         /// This function is used to update a particular entry in the database
         /// </summary>
-        public void update(EmployeeDTO dtoobj)
+        public void update(Employee dtoobj)
         {
 
             EmployeeDAL eobj = new EmployeeDAL();
@@ -122,30 +61,7 @@ namespace BAL
             //Addparameterforupdate(dtoobj);
             //SqlHelperobj.ExecuteNonquery("update");
         }
-        /// <summary>
-        /// adds 7 parameters to the cmd object to update the value in the database
-        /// </summary>
-        /// <param name="e">Employee object that contains the values that are to updated in the database</param>
-        /// <returns>a SqlCommand object that contains the required parameters</returns>
-        public void Addparameterforupdate(EmployeeDTO e)
-        {
-            string eid = "@Employeeid";
-            string fname = "@Firstname";
-            string lname = "@Lastname";
-            string phnenum = "@Phone_number";
-            string state = "@State";
-            string city = "@City";
-            string gender = "@Gender";
-            SqlHelperobj.Parameter(eid, SqlDbType.Int, e.eid, ParameterDirection.Input);
-            SqlHelperobj.Parameter(fname, SqlDbType.NVarChar, e.fname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(lname, SqlDbType.NVarChar, e.lname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(phnenum, SqlDbType.BigInt, e.phne_number, ParameterDirection.Input);
-            SqlHelperobj.Parameter(state, SqlDbType.NVarChar, e.state, ParameterDirection.Input);
-            SqlHelperobj.Parameter(city, SqlDbType.NVarChar, e.city, ParameterDirection.Input);
-            SqlHelperobj.Parameter(gender, SqlDbType.NVarChar, e.gender, ParameterDirection.Input);
-
-        }
-
+        
     }
 
 

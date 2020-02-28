@@ -29,18 +29,18 @@ namespace PAL
         /// <summary>
         ///This function returns an Employee object that contains the values for the properties of the object 
         /// </summary>
-        public EmployeeDTO add_to_SqlHelperobj()
+        public Employee add_to_SqlHelperobj()
         {
 
 
-            EmployeeDTO SqlHelperobj = new EmployeeDTO();
-            SqlHelperobj.fname = txt_Firstname.Text;
-            SqlHelperobj.lname = txt_Lastname.Text;
-            SqlHelperobj.state = txt_State.Text;
-            SqlHelperobj.city = txt_City.Text;
+            Employee SqlHelperobj = new Employee();
+            SqlHelperobj.Firstname = txt_Firstname.Text;
+            SqlHelperobj.Lastname = txt_Lastname.Text;
+            SqlHelperobj.State = txt_State.Text;
+            SqlHelperobj.City = txt_City.Text;
             try
             {
-                SqlHelperobj.eid = int.Parse(txt_Employeeid.Text);
+                SqlHelperobj.Employeeid = int.Parse(txt_Employeeid.Text);
             }
             catch(Exception)
             {
@@ -49,16 +49,16 @@ namespace PAL
 
              try
                 { 
-                SqlHelperobj.phne_number = long.Parse(txt_Phonenumber.Text);
+                SqlHelperobj.Phonenumber = long.Parse(txt_Phonenumber.Text);
             }
             catch (Exception)
             {
 
             }
             if (radiobttn_Male.Checked)
-                SqlHelperobj.gender = radiobttn_Male.Text;
+                SqlHelperobj.Gender = radiobttn_Male.Text;
             else
-                SqlHelperobj.gender = radiobttn_Female.Text;
+                SqlHelperobj.Gender = radiobttn_Female.Text;
             return SqlHelperobj;
 
 
@@ -114,7 +114,6 @@ namespace PAL
             DataTable dt = new DataTable();
             dt = ee.get();
             grid_output.DataSource = dt;
-            
         }
 
         private void bttn_delete_Click(object sender, EventArgs e)

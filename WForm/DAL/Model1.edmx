@@ -62,7 +62,7 @@
           <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phonenumber" Type="Int64" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="TestDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TestDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="Students" EntityType="Self.Student" />
         </EntityContainer>
@@ -71,7 +71,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TestDBModelStoreContainer" CdmEntityContainer="TestDBEntities">
+        <EntityContainerMapping StorageEntityContainer="TestDBModelStoreContainer" CdmEntityContainer="TestDBEntities1">
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="TestDBModel.Employee">
               <MappingFragment StoreEntitySet="Employee">

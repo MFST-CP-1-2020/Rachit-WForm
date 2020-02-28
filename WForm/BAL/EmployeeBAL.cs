@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DAL;
 using DTO;
 using System.Data;
-
+using BAL.mapper;
 namespace BAL
 {
     public class EmployeeBAL
@@ -16,11 +16,14 @@ namespace BAL
     
 
 
-        public void addusingDAL(Employee obj)
+        public void addusingDAL(EmployeeDTO obj)
         {
+            Employeemapper mapperobj = new Employeemapper();
+            
 
+            
             EmployeeDAL dalobj = new EmployeeDAL();
-            dalobj.add(obj);
+            dalobj.add(mapperobj.to_modelobj(obj));
 
         }
         /// <summary>
@@ -53,11 +56,11 @@ namespace BAL
         /// <summary>
         /// This function is used to update a particular entry in the database
         /// </summary>
-        public void update(Employee dtoobj)
+        public void update(EmployeeDTO dtoobj)
         {
-
+            Employeemapper mapperobj = new Employeemapper();
             EmployeeDAL eobj = new EmployeeDAL();
-            eobj.update(dtoobj);
+            eobj.update(mapperobj.to_modelobj(dtoobj));
 
 
         }

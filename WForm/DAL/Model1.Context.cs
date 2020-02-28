@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO
+namespace DAL
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TestDBEntities : DbContext
+    public partial class TestDBEntities1 : DbContext
     {
-        public TestDBEntities()
-            : base("name=TestDBEntities")
+        public TestDBEntities1()
+            : base("name=TestDBEntities1")
         {
         }
     

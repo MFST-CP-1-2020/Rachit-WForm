@@ -22,7 +22,7 @@ namespace DAL
         public DataTable get()
         {
 
-            var entityobj = new TestDBEntities();
+            var entityobj = new TestDBEntities1();
 
             
             DataTable t = new DataTable();
@@ -49,7 +49,7 @@ namespace DAL
         public void add(Employee dtoobj)
         {
 
-            var v = new TestDBEntities();
+            var v = new TestDBEntities1();
             v.Employees.Add(dtoobj);
             v.SaveChanges();
         
@@ -65,7 +65,7 @@ namespace DAL
         /// <param name="eid"> The id of the EmployeeDAL who's data we wish to delete from the database</param>
         public void delete(int eid)
         {
-            var entityobj = new TestDBEntities();
+            var entityobj = new TestDBEntities1();
             var deletequerry = (from a in entityobj.Employees where a.Employeeid == eid select a).Single();
             entityobj.Employees.Remove(deletequerry);
             entityobj.SaveChanges();
@@ -80,7 +80,7 @@ namespace DAL
         /// </summary>
         public void update(Employee obj)
         {
-            var entityobj = new TestDBEntities();
+            var entityobj = new TestDBEntities1();
             Employee employee = (from d in entityobj.Employees where d.Employeeid==obj.Employeeid select d).Single();
             employee.Firstname = obj.Firstname;
             employee.Lastname = obj.Lastname;

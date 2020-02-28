@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO
+namespace DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class Student
     {
-        public string Gender { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public long Phonenumber { get; set; }
-        public string Lastname { get; set; }
+        public int Studentid { get; set; }
         public string Firstname { get; set; }
-        public int Employeeid { get; set; }
+        public string Lastname { get; set; }
+        public string State { get; set; }
+        public string City { get; set; }
+        public string Gender { get; set; }
+        public long Phonenumber { get; set; }
     }
 }

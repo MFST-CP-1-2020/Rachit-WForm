@@ -18,6 +18,7 @@ namespace BAL
 
         public void addusingDAL(Employee obj)
         {
+
             EmployeeDAL dalobj = new EmployeeDAL();
             dalobj.add(obj);
 
@@ -44,11 +45,10 @@ namespace BAL
         /// <param name="eid"> The id of the Employee who's data we wish to delete from the database</param>
         public void delete(int eid)
         {
+
             EmployeeDAL edalobj = new EmployeeDAL();
             edalobj.delete(eid);
-            //Addparameterfordelete(eid);
-            //SqlHelperobj.ExecuteNonquery("deletefrom");
-
+        
         }
         /// <summary>
         /// This function is used to update a particular entry in the database
@@ -58,8 +58,8 @@ namespace BAL
 
             EmployeeDAL eobj = new EmployeeDAL();
             eobj.update(dtoobj);
-            //Addparameterforupdate(dtoobj);
-            //SqlHelperobj.ExecuteNonquery("update");
+
+
         }
         
     }

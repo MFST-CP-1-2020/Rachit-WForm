@@ -73,7 +73,6 @@ namespace PAL
         {
 
             EmployeeBAL SqlHelperobj = new EmployeeBAL();
-            //SqlHelperobj = add_to_SqlHelperobj();
             SqlHelperobj.addusingDAL(add_to_SqlHelperobj());
             MessageBox.Show("Added successfully");
             clearentries();
@@ -94,17 +93,7 @@ namespace PAL
             radiobttn_Female.Checked = false;
         }
 
-        /// <summary>
-        /// This function gets executed when the view button is clicked
-        /// </summary>
-       
-        /// <summary>
-        /// This function is called when the delete button is clicked
-        /// </summary>
-        /// <summary>
-        /// This function is called when the update button is clicked
-        /// </summary>
-       
+        
        
         private void bttn_view_Click(object sender, EventArgs e)
         {
@@ -127,10 +116,6 @@ namespace PAL
         private void bttn_update_Click(object sender, EventArgs e)
         {
             EmployeeBAL ee = new EmployeeBAL();
-            //ee = add_to_SqlHelperobj();
-
-
-            
             ee.update(add_to_SqlHelperobj());
             MessageBox.Show("updated successfully");
             

@@ -7,3 +7,4 @@ D:\Projects\WformCP\Rachit-WForm.git\WForm\DTO\bin\Debug\EntityFramework.dll
 D:\Projects\WformCP\Rachit-WForm.git\WForm\DTO\bin\Debug\EntityFramework.SqlServer.dll
 D:\Projects\WformCP\Rachit-WForm.git\WForm\DTO\bin\Debug\EntityFramework.xml
 D:\Projects\WformCP\Rachit-WForm.git\WForm\DTO\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\WformCP\Rachit-WForm.git\WForm\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache

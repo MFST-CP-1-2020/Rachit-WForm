@@ -29,18 +29,18 @@ namespace PAL
         /// <summary>
         ///This function returns an Employee object that contains the values for the properties of the object 
         /// </summary>
-        public EmployeeDTO add_to_SqlHelperobj()
+        public EmployeeDTO add_to_DTOobj()
         {
 
 
-            EmployeeDTO SqlHelperobj = new EmployeeDTO();
-            SqlHelperobj.fname = txt_Firstname.Text;
-            SqlHelperobj.lname = txt_Lastname.Text;
-            SqlHelperobj.state = txt_State.Text;
-            SqlHelperobj.city = txt_City.Text;
+            EmployeeDTO employeebalobj = new EmployeeDTO();
+            employeebalobj.fname = txt_Firstname.Text;
+            employeebalobj.lname = txt_Lastname.Text;
+            employeebalobj.state = txt_State.Text;
+            employeebalobj.city = txt_City.Text;
             try
             {
-                SqlHelperobj.eid = int.Parse(txt_Employeeid.Text);
+                employeebalobj.eid = int.Parse(txt_Employeeid.Text);
             }
             catch(Exception)
             {
@@ -49,17 +49,17 @@ namespace PAL
 
              try
                 { 
-                SqlHelperobj.phne_number = long.Parse(txt_Phonenumber.Text);
+                employeebalobj.phne_number = long.Parse(txt_Phonenumber.Text);
             }
             catch (Exception)
             {
 
             }
             if (radiobttn_Male.Checked)
-                SqlHelperobj.gender = radiobttn_Male.Text;
+                employeebalobj.gender = radiobttn_Male.Text;
             else
-                SqlHelperobj.gender = radiobttn_Female.Text;
-            return SqlHelperobj;
+                employeebalobj.gender = radiobttn_Female.Text;
+            return employeebalobj;
 
 
 
@@ -72,8 +72,8 @@ namespace PAL
         private void submit_button_Click(object sender, EventArgs e)
         {
 
-            EmployeeBAL SqlHelperobj = new EmployeeBAL();
-            SqlHelperobj.addusingDAL(add_to_SqlHelperobj());
+            EmployeeBAL employeebalobj = new EmployeeBAL();
+            employeebalobj.addusingDAL(add_to_DTOobj());
             MessageBox.Show("Added successfully");
             clearentries();
         }
@@ -97,26 +97,26 @@ namespace PAL
        
         private void bttn_view_Click(object sender, EventArgs e)
         {
-            EmployeeBAL ee = new EmployeeBAL();
+            EmployeeBAL employeebalobj = new EmployeeBAL();
             
             
             DataTable dt = new DataTable();
-            dt = ee.get();
+            dt = employeebalobj.get();
             grid_output.DataSource = dt;
         }
 
         private void bttn_delete_Click(object sender, EventArgs e)
         {
-            EmployeeBAL ee = new EmployeeBAL();
-            ee.delete(int.Parse(txt_Employeeid.Text));
+            EmployeeBAL employeebalobj = new EmployeeBAL();
+            employeebalobj.delete(int.Parse(txt_Employeeid.Text));
             MessageBox.Show("deleted sucessfully");
 
         }
 
         private void bttn_update_Click(object sender, EventArgs e)
         {
-            EmployeeBAL ee = new EmployeeBAL();
-            ee.update(add_to_SqlHelperobj());
+            EmployeeBAL employeebalobj = new EmployeeBAL();
+            employeebalobj.update(add_to_DTOobj());
             MessageBox.Show("updated successfully");
             
         }

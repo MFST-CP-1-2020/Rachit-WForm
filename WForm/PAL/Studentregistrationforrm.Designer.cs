@@ -31,8 +31,8 @@
             this.bttn_update = new System.Windows.Forms.Button();
             this.bttn_delete = new System.Windows.Forms.Button();
             this.bttn_view = new System.Windows.Forms.Button();
-            this.txt_Employeeid = new System.Windows.Forms.TextBox();
-            this.lbl_Employeeid = new System.Windows.Forms.Label();
+            this.txt_Studentid = new System.Windows.Forms.TextBox();
+            this.lbl_studentid = new System.Windows.Forms.Label();
             this.txt_City = new System.Windows.Forms.TextBox();
             this.txt_State = new System.Windows.Forms.TextBox();
             this.bttn_submit = new System.Windows.Forms.Button();
@@ -82,21 +82,21 @@
             this.bttn_view.UseVisualStyleBackColor = true;
             this.bttn_view.Click += new System.EventHandler(this.bttn_view_Click);
             // 
-            // txt_Employeeid
+            // txt_Studentid
             // 
-            this.txt_Employeeid.Location = new System.Drawing.Point(243, 433);
-            this.txt_Employeeid.Name = "txt_Employeeid";
-            this.txt_Employeeid.Size = new System.Drawing.Size(100, 22);
-            this.txt_Employeeid.TabIndex = 84;
+            this.txt_Studentid.Location = new System.Drawing.Point(243, 433);
+            this.txt_Studentid.Name = "txt_Studentid";
+            this.txt_Studentid.Size = new System.Drawing.Size(100, 22);
+            this.txt_Studentid.TabIndex = 84;
             // 
-            // lbl_Employeeid
+            // lbl_studentid
             // 
-            this.lbl_Employeeid.AutoSize = true;
-            this.lbl_Employeeid.Location = new System.Drawing.Point(144, 436);
-            this.lbl_Employeeid.Name = "lbl_Employeeid";
-            this.lbl_Employeeid.Size = new System.Drawing.Size(85, 17);
-            this.lbl_Employeeid.TabIndex = 83;
-            this.lbl_Employeeid.Text = "Employee id";
+            this.lbl_studentid.AutoSize = true;
+            this.lbl_studentid.Location = new System.Drawing.Point(144, 436);
+            this.lbl_studentid.Name = "lbl_studentid";
+            this.lbl_studentid.Size = new System.Drawing.Size(72, 17);
+            this.lbl_studentid.TabIndex = 83;
+            this.lbl_studentid.Text = "Student id";
             // 
             // txt_City
             // 
@@ -238,7 +238,7 @@
             this.lbl_Firstname.TabIndex = 67;
             this.lbl_Firstname.Text = "First Name";
             // 
-            // Form2
+            // Studentregistrationforrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -246,8 +246,8 @@
             this.Controls.Add(this.bttn_update);
             this.Controls.Add(this.bttn_delete);
             this.Controls.Add(this.bttn_view);
-            this.Controls.Add(this.txt_Employeeid);
-            this.Controls.Add(this.lbl_Employeeid);
+            this.Controls.Add(this.txt_Studentid);
+            this.Controls.Add(this.lbl_studentid);
             this.Controls.Add(this.txt_City);
             this.Controls.Add(this.txt_State);
             this.Controls.Add(this.bttn_submit);
@@ -264,7 +264,7 @@
             this.Controls.Add(this.lbl_Lastname);
             this.Controls.Add(this.txt_Firstname);
             this.Controls.Add(this.lbl_Firstname);
-            this.Name = "Form2";
+            this.Name = "Studentregistrationforrm";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.grid_output)).EndInit();
             this.ResumeLayout(false);
@@ -277,8 +277,8 @@
         private System.Windows.Forms.Button bttn_update;
         private System.Windows.Forms.Button bttn_delete;
         private System.Windows.Forms.Button bttn_view;
-        private System.Windows.Forms.TextBox txt_Employeeid;
-        private System.Windows.Forms.Label lbl_Employeeid;
+        private System.Windows.Forms.TextBox txt_Studentid;
+        private System.Windows.Forms.Label lbl_studentid;
         private System.Windows.Forms.TextBox txt_City;
         private System.Windows.Forms.TextBox txt_State;
         private System.Windows.Forms.Button bttn_submit;

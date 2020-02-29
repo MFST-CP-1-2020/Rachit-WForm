@@ -20,8 +20,7 @@ namespace PAL
 
      
         
-        EmployeeBAL emp = new EmployeeBAL();
-
+       
 
         private void Form5_Load(object sender, EventArgs e)
         {
@@ -32,28 +31,27 @@ namespace PAL
         /// <summary>
         ///This function returns an Employee object that contains the values for the properties of the object 
         /// </summary>
-        public StudentDTO add_to_SqlHelperobj()
+        public StudentDTO add_to_DTOobj()
         {
-            StudentDTO SqlHelperobj = new StudentDTO();
-            SqlHelperobj.fname = txt_Firstname.Text;
-            SqlHelperobj.lname = txt_Lastname.Text;
-            SqlHelperobj.state = txt_State.Text;
-            SqlHelperobj.city = txt_City.Text;
+            StudentDTO studentdtoobj = new StudentDTO();
+            studentdtoobj.fname = txt_Firstname.Text;
+            studentdtoobj.lname = txt_Lastname.Text;
+            studentdtoobj.state = txt_State.Text;
+            studentdtoobj.city = txt_City.Text;
             try
             {
-                SqlHelperobj.sid = int.Parse(txt_Employeeid.Text);
+                studentdtoobj.sid = int.Parse(txt_Studentid.Text);
 
-                SqlHelperobj.phne_number = long.Parse(txt_Phonenumber.Text);
+                studentdtoobj.phne_number = long.Parse(txt_Phonenumber.Text);
             }
             catch (Exception)
             {
-                MessageBox.Show("Invalid number");
             }
             if (radiobttn_Male.Checked)
-                SqlHelperobj.gender = radiobttn_Male.Text;
+                studentdtoobj.gender = radiobttn_Male.Text;
             else
-                SqlHelperobj.gender = radiobttn_Female.Text;
-            return SqlHelperobj;
+                studentdtoobj.gender = radiobttn_Female.Text;
+            return studentdtoobj;
 
 
 
@@ -74,45 +72,34 @@ namespace PAL
             txt_Phonenumber.Clear();
             txt_State.Clear();
             txt_City.Clear();
-            txt_Employeeid.Clear();
+            txt_Studentid.Clear();
             radiobttn_Male.Checked = false;
             radiobttn_Female.Checked = false;
         }
 
-        /// <summary>
-        /// This function gets executed when the view button is clicked
-        /// </summary>
-
-        /// <summary>
-        /// This function is called when the delete button is clicked
-        /// </summary>
-        /// <summary>
-        /// This function is called when the update button is clicked
-        /// </summary>
-
-
+       
+       
         private void bttn_view_Click(object sender, EventArgs e)
         {
-            StudentBAL ee = new StudentBAL();
+            StudentBAL studentbalobj = new StudentBAL();
             DataTable dt = new DataTable();
-            dt = ee.get();
+            dt = studentbalobj.get();
             grid_output.DataSource = dt;
 
         }
 
         private void bttn_delete_Click(object sender, EventArgs e)
         {
-            StudentBAL ee = new StudentBAL();
-            ee.delete(int.Parse(txt_Employeeid.Text));
+            StudentBAL studentbalobj = new StudentBAL();
+            studentbalobj.delete(int.Parse(txt_Studentid.Text));
             MessageBox.Show("deleted sucessfully");
 
         }
 
         private void bttn_update_Click(object sender, EventArgs e)
         {
-            StudentBAL ee = new StudentBAL();
-            //ee = add_to_SqlHelperobj();
-            ee.update(add_to_SqlHelperobj());
+            StudentBAL studentbalobj = new StudentBAL();
+            studentbalobj.update(add_to_DTOobj());
            
             MessageBox.Show("updated successfully");
 
@@ -120,9 +107,8 @@ namespace PAL
 
         private void bttn_submit_Click(object sender, EventArgs e)
         {
-            StudentBAL SqlHelperobj = new StudentBAL();
-            //SqlHelperobj = add_to_SqlHelperobj();
-            SqlHelperobj.add(add_to_SqlHelperobj());
+            StudentBAL studentdtoobj = new StudentBAL();
+            studentdtoobj.add(add_to_DTOobj());
             MessageBox.Show("Added successfully");
             clearentries();
         

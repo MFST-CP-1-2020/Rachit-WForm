@@ -5,25 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+
 namespace DAL
 {
     public class StudentDAL
     {
-        public int sid { get; set; }
-        public string fname { get; set; }
-        public string lname { get; set; }
-
-        public long phne_number { get; set; }
-
-        public string gender { get; set; }
-
-        public string state { get; set; }
-
-        public string city { get; set; }
-
-        SqlHelperClass SqlHelperobj = new SqlHelperClass();
-
-
 
         /// <summary>
         ///  This function returns a datatable that contains the databse
@@ -32,103 +18,81 @@ namespace DAL
         {
 
 
+            var entityobj = new TestDBEntities1();
+
+
             DataTable t = new DataTable();
-            t = SqlHelperobj.SqlAdapter("getStudent");
+            t = addcolm();
+            var row = (from d in entityobj.Students select d);
+            foreach (var rowobj in row)
+            {
+                DataRow datarow = t.NewRow();
+                datarow["Studentid"] = rowobj.Studentid;
+                datarow["Firstname"] = rowobj.Firstname;
+                datarow["Lastname"] = rowobj.Lastname;
+                datarow["Phonenumber"] = rowobj.Phonenumber;
+                datarow["Gender"] = rowobj.Gender;
+                datarow["City"] = rowobj.City;
+                datarow["State"] = rowobj.State;
+                t.Rows.Add(datarow);
+            }
             return t;
         }
 
         /// <summary>
         /// This function is uesd to add the values from the entries tot he database
         /// </summary>
-        public void add()
+        public void add(Student studentobj)
         {
-
-
-            Addparameterforinsert();
-            int i = SqlHelperobj.ExecuteScaler("insertintousingscalarstudent");
-            //MessageBox.Show(i.ToString());
-
-
+            var context = new TestDBEntities1();
+            context.Students.Add(studentobj);
+            context.SaveChanges();
+            
         }
 
 
-        /// <summary>
-        /// This function adds the paramters to a SqlCommand object and returns that object
-        /// </summary>
-        /// <param name="e"> An Employee object that contains the values to be added</param>
-        /// <returns>A SqlCommand Object that contains the needed paramters</returns>
-        public void Addparameterforinsert()
-        {
-
-            string fname = "@Firstname";
-            string lname = "@Lastname";
-            string phnenum = "@Phone_number";
-            string state = "@State";
-            string city = "@City";
-            string gender = "@Gender";
-
-            SqlHelperobj.Parameter(fname, SqlDbType.NVarChar, this.fname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(lname, SqlDbType.NVarChar, this.lname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(phnenum, SqlDbType.BigInt, this.phne_number, ParameterDirection.Input);
-            SqlHelperobj.Parameter(state, SqlDbType.NVarChar, this.state, ParameterDirection.Input);
-            SqlHelperobj.Parameter(city, SqlDbType.NVarChar, this.city, ParameterDirection.Input);
-            SqlHelperobj.Parameter(gender, SqlDbType.NVarChar, this.gender, ParameterDirection.Input);
-        }
-
-
+     
         /// <summary>
         /// This function is used to delete a row from the database
         /// </summary>
         /// <param name="eid"> The id of the Employee who's data we wish to delete from the database</param>
         public void delete(int sid)
         {
-
-            Addparameterfordelete(sid);
-            SqlHelperobj.ExecuteNonquery("deletefromstudent");
-
-        }
-        /// <summary>
-        /// adds Employeeid parameter to the cmd object to delete that from the database
-        /// </summary>
-        /// <param name="e">The Employeeid of the Employee who's data we wish to delete from the database</param>
-        /// <returns> A SqlCommand object that contains the Employeeid parameter</returns>
-        public void Addparameterfordelete(int e)
-        {
-            string sid = "@Studentid";
-            SqlHelperobj.Parameter(sid, SqlDbType.Int, e, ParameterDirection.Input);
-
+            var context = new TestDBEntities1();
+            var delete = (from d in context.Students where d.Studentid == sid select d).Single();
+            context.Students.Remove(delete);
+            context.SaveChanges();
         }
         /// <summary>
         /// This function is used to update a particular entry in the database
         /// </summary>
-        public void update()
+        public void update(Student studentobj)
         {
-            Addparameterforupdate(this);
-            SqlHelperobj.ExecuteNonquery("updatefromstudent");
-        }
-        /// <summary>
-        /// adds 7 parameters to the cmd object to update the value in the database
-        /// </summary>
-        /// <param name="e">Employee object that contains the values that are to updated in the database</param>
-        /// <returns>a SqlCommand object that contains the required parameters</returns>
-        public void Addparameterforupdate(StudentDAL e)
-        {
-            string sid = "@Studentid";
-            string fname = "@Firstname";
-            string lname = "@Lastname";
-            string phnenum = "@Phone_number";
-            string state = "@State";
-            string city = "@City";
-            string gender = "@Gender";
-            SqlHelperobj.Parameter(sid, SqlDbType.Int, e.sid, ParameterDirection.Input);
-            SqlHelperobj.Parameter(fname, SqlDbType.NVarChar, e.fname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(lname, SqlDbType.NVarChar, e.lname, ParameterDirection.Input);
-            SqlHelperobj.Parameter(phnenum, SqlDbType.BigInt, e.phne_number, ParameterDirection.Input);
-            SqlHelperobj.Parameter(state, SqlDbType.NVarChar, e.state, ParameterDirection.Input);
-            SqlHelperobj.Parameter(city, SqlDbType.NVarChar, e.city, ParameterDirection.Input);
-            SqlHelperobj.Parameter(gender, SqlDbType.NVarChar, e.gender, ParameterDirection.Input);
+            var context = new TestDBEntities1();
+            var update = (from d in context.Students where d.Studentid == studentobj.Studentid select d).Single();
+            update.Firstname = studentobj.Firstname;
+            update.Lastname = studentobj.Lastname;
+            update.Gender = studentobj.Gender;
+            update.Phonenumber = studentobj.Phonenumber;
+            update.State = studentobj.State;
+            update.City = studentobj.City;
+            context.SaveChanges();
 
         }
+        
+        public DataTable addcolm()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Studentid");
+            dt.Columns.Add("Firstname");
+            dt.Columns.Add("Lastname");
+            dt.Columns.Add("Phonenumber");
+            dt.Columns.Add("Gender");
+            dt.Columns.Add("State");
+            dt.Columns.Add("City");
+            return dt;
+        }
+
 
     }
 

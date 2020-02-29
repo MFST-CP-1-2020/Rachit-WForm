@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="EmployeeBAL.cs" />
     <Compile Include="mapper\Employeemapper.cs" />
+    <Compile Include="mapper\Studentmapper.cs" />
     <Compile Include="StudentBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,6 +7,10 @@ using System.Data.SqlClient;
 using System.Data;
 namespace DAL
 {
+
+    /// <summary>
+    /// This is the sqlhelper class that contains functions to provide functionalities such as add,delete,update, view.
+    /// </summary>
     public class SqlHelperClass
     {
 
@@ -106,8 +110,5 @@ namespace DAL
             Closeconnection();
             return t;
         }
-
-
     }
-
 }

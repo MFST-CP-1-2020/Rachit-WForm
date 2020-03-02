@@ -8,6 +8,10 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
+
+    /// <summary>
+    /// This class is present in the Data layer of the form and interacts with the database to add,update,delate and get or view the entries of the database
+    /// </summary>
     public class StudentDAL
     {
 
@@ -40,7 +44,7 @@ namespace DAL
         }
 
         /// <summary>
-        /// This function is uesd to add the values from the entries tot he database
+        /// This function is uesd to add the values from the entries to the database
         /// </summary>
         public void add(Student studentobj)
         {
@@ -50,36 +54,32 @@ namespace DAL
             
         }
 
-
-     
         /// <summary>
         /// This function is used to delete a row from the database
         /// </summary>
         /// <param name="eid"> The id of the Employee who's data we wish to delete from the database</param>
-        public void delete(int sid)
+        public void delete(Student modelobj)
         {
             var context = new TestDBEntities1();
-            var delete = (from d in context.Students where d.Studentid == sid select d).Single();
-            context.Students.Remove(delete);
+      
+            context.Entry(modelobj).State = System.Data.Entity.EntityState.Deleted;
             context.SaveChanges();
         }
+
         /// <summary>
         /// This function is used to update a particular entry in the database
         /// </summary>
         public void update(Student studentobj)
         {
-            var context = new TestDBEntities1();
-            var update = (from d in context.Students where d.Studentid == studentobj.Studentid select d).Single();
-            update.Firstname = studentobj.Firstname;
-            update.Lastname = studentobj.Lastname;
-            update.Gender = studentobj.Gender;
-            update.Phonenumber = studentobj.Phonenumber;
-            update.State = studentobj.State;
-            update.City = studentobj.City;
-            context.SaveChanges();
 
+            var context = new TestDBEntities1();
+            context.Entry(studentobj).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
         }
         
+        /// <summary>
+        /// This function is used to add coloumns to the datatable that will returned to the bussiness layer
+        /// </summary>
         public DataTable addcolm()
         {
             DataTable dt = new DataTable();

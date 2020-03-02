@@ -10,26 +10,23 @@ using System.Windows.Forms;
 using BAL;
 using DTO;
 namespace PAL
+
+
 {
+
+    /// <summary>
+    /// This class contains all the functions to perform the basic operations such as add,update,delte and add to the database
+    /// </summary>
     public partial class Studentregistrationforrm : Form
     {
         public Studentregistrationforrm()
         {
             InitializeComponent();
         }
-
-     
         
-       
-
-        private void Form5_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
+         
         /// <summary>
-        ///This function returns an Employee object that contains the values for the properties of the object 
+        ///This function returns an StudentDTO object that contains the values for the properties of the object 
         /// </summary>
         public StudentDTO add_to_DTOobj()
         {
@@ -52,15 +49,7 @@ namespace PAL
             else
                 studentdtoobj.gender = radiobttn_Female.Text;
             return studentdtoobj;
-
-
-
         }
-
-
-        /// <summary>
-        /// This function get executed when the submit button is clicked
-        /// </summary>
         
         /// <summary>
         /// This function clears the entries of the form
@@ -76,9 +65,10 @@ namespace PAL
             radiobttn_Male.Checked = false;
             radiobttn_Female.Checked = false;
         }
-
        
-       
+       /// <summary>
+       /// This function implements the view or get feature of the form
+       /// </summary>
         private void bttn_view_Click(object sender, EventArgs e)
         {
             StudentBAL studentbalobj = new StudentBAL();
@@ -88,27 +78,43 @@ namespace PAL
 
         }
 
+        /// <summary>
+        /// This function implements the delete feature of the form
+        /// </summary>
         private void bttn_delete_Click(object sender, EventArgs e)
         {
             StudentBAL studentbalobj = new StudentBAL();
-            studentbalobj.delete(int.Parse(txt_Studentid.Text));
+            studentbalobj.delete(add_to_DTOobj());
+
+
             MessageBox.Show("deleted sucessfully");
+            clearentries();
 
         }
 
+        /// <summary>
+        ///This function implements the update feature of the form 
+        /// </summary>
         private void bttn_update_Click(object sender, EventArgs e)
         {
             StudentBAL studentbalobj = new StudentBAL();
             studentbalobj.update(add_to_DTOobj());
            
+
             MessageBox.Show("updated successfully");
+            clearentries();
 
         }
 
+        /// <summary>
+        ///This function implements the add feature of the form 
+        /// </summary>
         private void bttn_submit_Click(object sender, EventArgs e)
         {
             StudentBAL studentdtoobj = new StudentBAL();
             studentdtoobj.add(add_to_DTOobj());
+
+
             MessageBox.Show("Added successfully");
             clearentries();
         

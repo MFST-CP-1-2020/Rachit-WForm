@@ -1,6 +1,6 @@
 ﻿namespace PAL
 {
-    partial class Form1
+    partial class Employeeregistrationform
     {
         /// <summary>
         /// Required designer variable.
@@ -238,7 +238,7 @@
             this.lbl_Firstname.TabIndex = 46;
             this.lbl_Firstname.Text = "First Name";
             // 
-            // Form1
+            // Employeeregistrationform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -264,8 +264,8 @@
             this.Controls.Add(this.lbl_Lastname);
             this.Controls.Add(this.txt_Firstname);
             this.Controls.Add(this.lbl_Firstname);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Employeeregistrationform";
+            this.Text = "Employeeregistrationform";
             ((System.ComponentModel.ISupportInitialize)(this.grid_output)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

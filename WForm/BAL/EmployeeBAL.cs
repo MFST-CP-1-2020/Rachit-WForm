@@ -9,23 +9,27 @@ using System.Data;
 using BAL.mapper;
 namespace BAL
 {
+
+    /// <summary>
+    /// This class is present in the bussiness layer of the employee form
+    /// </summary>
     public class EmployeeBAL
     {
-        
-
-    
-
-
-        public void addusingDAL(EmployeeDTO obj)
+        /// <summary>
+        /// This function passes the object recieved from PAL to DAL by converting the object type.
+        /// </summary>
+        /// <param name="dtoobj">the object recieved from PAL</param>
+        public void addusingDAL(EmployeeDTO dtoobj)
         {
             Employeemapper mapperobj = new Employeemapper();
             
 
             
             EmployeeDAL dalobj = new EmployeeDAL();
-            dalobj.add(mapperobj.to_modelobj(obj));
+            dalobj.add(mapperobj.to_modelobj(dtoobj));
 
         }
+
         /// <summary>
         ///  This function returns a datatable that contains the databse
         /// </summary>
@@ -45,14 +49,15 @@ namespace BAL
         /// <summary>
         /// This function is used to delete a row from the database
         /// </summary>
-        /// <param name="eid"> The id of the Employee who's data we wish to delete from the database</param>
-        public void delete(int eid)
+        /// <param name="dtoobj"> This object contains the id of the Employee who's data we wish to delete from the database</param>
+        public void delete(EmployeeDTO dtoobj)
         {
-
+            Employeemapper mapperobj = new Employeemapper();
             EmployeeDAL edalobj = new EmployeeDAL();
-            edalobj.delete(eid);
+            edalobj.delete(mapperobj.to_modelobj(dtoobj));
         
         }
+
         /// <summary>
         /// This function is used to update a particular entry in the database
         /// </summary>
@@ -63,10 +68,6 @@ namespace BAL
             eobj.update(mapperobj.to_modelobj(dtoobj));
 
 
-        }
-        
+        }   
     }
-
-
-  
 }

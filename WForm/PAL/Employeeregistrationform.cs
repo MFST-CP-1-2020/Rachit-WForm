@@ -11,21 +11,18 @@ using BAL;
 using DTO;
 namespace PAL
 {
-    public partial class Form1 : Form
+
+    /// <summary>
+    /// This class is present in the presentation layer of the student form and contains functions for the add,upadate,delete and get or view.Also contains a function to add values to the DTO object.
+    /// </summary>
+    public partial class Employeeregistrationform : Form
     {
-        public Form1()
+        public Employeeregistrationform()
         {
             InitializeComponent();
         }
         EmployeeBAL emp = new EmployeeBAL();
-        
-
-        private void Form5_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
+              
         /// <summary>
         ///This function returns an Employee object that contains the values for the properties of the object 
         /// </summary>
@@ -60,14 +57,11 @@ namespace PAL
             else
                 employeebalobj.gender = radiobttn_Female.Text;
             return employeebalobj;
-
-
-
         }
 
 
         /// <summary>
-        /// This function get executed when the submit button is clicked
+        /// This function get executed when the submit button is clicked and passes the DTO object to the Bussiness Layer
         /// </summary>
         private void submit_button_Click(object sender, EventArgs e)
         {
@@ -93,26 +87,33 @@ namespace PAL
             radiobttn_Female.Checked = false;
         }
 
-        
-       
+       /// <summary>
+       ///This function is called when the view button is clicked on the form 
+       /// </summary>
         private void bttn_view_Click(object sender, EventArgs e)
         {
             EmployeeBAL employeebalobj = new EmployeeBAL();
-            
-            
             DataTable dt = new DataTable();
+
             dt = employeebalobj.get();
             grid_output.DataSource = dt;
         }
 
+
+        /// <summary>
+        ///This function is called when the delete button is clicked on the form and passes the DTO object to the bussiness layer.
+        /// </summary>
         private void bttn_delete_Click(object sender, EventArgs e)
         {
             EmployeeBAL employeebalobj = new EmployeeBAL();
-            employeebalobj.delete(int.Parse(txt_Employeeid.Text));
+            employeebalobj.delete(add_to_DTOobj());
             MessageBox.Show("deleted sucessfully");
 
         }
 
+        /// <summary>
+        ///This function is called when the update button is clicked on the form and passes the DTO object to the bussiness layer.
+        /// </summary>
         private void bttn_update_Click(object sender, EventArgs e)
         {
             EmployeeBAL employeebalobj = new EmployeeBAL();
@@ -120,5 +121,6 @@ namespace PAL
             MessageBox.Show("updated successfully");
             
         }
+        
     }
 }

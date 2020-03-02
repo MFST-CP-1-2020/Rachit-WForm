@@ -10,21 +10,19 @@ using DTO;
 namespace DAL
 {
 
-    
+    /// <summary>
+    /// This class is present in the data layer of the form and interacts with the database directly.
+    /// </summary>
     public class EmployeeDAL
     {
-       
-
-
+     
         /// <summary>
         ///  This function returns a datatable that contains the databse
         /// </summary>
         public DataTable get()
         {
 
-            var entityobj = new TestDBEntities1();
-
-            
+            var entityobj = new TestDBEntities1();       
             DataTable t = new DataTable();
             t = addcolm();
             var row = (from d in entityobj.Employees select d);
@@ -44,7 +42,7 @@ namespace DAL
         }
 
         /// <summary>
-        /// This function is uesd to add the values from the entries tot he database
+        /// This function is uesd to add the values from the entries to the database
         /// </summary>
         public void add(Employee dtoobj)
         {
@@ -55,44 +53,32 @@ namespace DAL
         
         }
 
-
-
-        
-
         /// <summary>
         /// This function is used to delete a row from the database
         /// </summary>
-        /// <param name="eid"> The id of the EmployeeDAL who's data we wish to delete from the database</param>
-        public void delete(int eid)
+        public void delete(Employee modelobj)
         {
-            var entityobj = new TestDBEntities1();
-            var deletequerry = (from a in entityobj.Employees where a.Employeeid == eid select a).Single();
-            entityobj.Employees.Remove(deletequerry);
-            entityobj.SaveChanges();
+            var context = new TestDBEntities1();
+
+            context.Entry(modelobj).State = System.Data.Entity.EntityState.Deleted;
+            context.SaveChanges();
 
         }
 
-
-
-        
         /// <summary>
         /// This function is used to update a particular entry in the database
         /// </summary>
-        public void update(Employee obj)
+        public void update(Employee modelobj)
         {
-            var entityobj = new TestDBEntities1();
-            Employee employee = (from d in entityobj.Employees where d.Employeeid==obj.Employeeid select d).Single();
-            employee.Firstname = obj.Firstname;
-            employee.Lastname = obj.Lastname;
-            employee.Gender = obj.Gender;
-            employee.Phonenumber = obj.Phonenumber;
-            employee.Gender = obj.Gender;
-            employee.State = obj.State;
-            employee.City = obj.City;
-            entityobj.SaveChanges();
+            var context = new TestDBEntities1();
+            context.Entry(modelobj).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
 
         }
 
+        /// <summary>
+        /// This function adds the columns to the datatable that will be returned to the bussiness layer.
+        /// </summary>
         public DataTable addcolm()
         {
             DataTable dt = new DataTable();
@@ -104,14 +90,6 @@ namespace DAL
             dt.Columns.Add("State");
             dt.Columns.Add("City");
             return dt;
-        }
-
-
-
-        
+        }   
     }
-
-
-  
-
 }

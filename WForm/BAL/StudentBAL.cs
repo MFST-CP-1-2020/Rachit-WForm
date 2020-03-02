@@ -10,6 +10,11 @@ using BAL.mapper;
 using DTO;
 namespace BAL
 {
+
+
+    /// <summary>
+    /// This is the class that is present in the bussiness layer of the form.This form has the add,update,delete and get methods
+    /// </summary>
     public class StudentBAL
     {
        
@@ -43,12 +48,12 @@ namespace BAL
         /// <summary>
         /// This function is used to delete a row from the database
         /// </summary>
-        /// <param name="eid"> The id of the Employee who's data we wish to delete from the database</param>
-        public void delete(int eid)
+        /// <param name="dtoobj"> This object conatins the id of the Employee who's data we wish to delete from the database</param>
+        public void delete(StudentDTO dtoobj)
         {
-
+            Studentmapper mapperobj = new Studentmapper();
             StudentDAL studentdalobj = new StudentDAL();
-            studentdalobj.delete(eid);
+            studentdalobj.delete(mapperobj.to_modelobj(dtoobj));
 
         }
         /// <summary>

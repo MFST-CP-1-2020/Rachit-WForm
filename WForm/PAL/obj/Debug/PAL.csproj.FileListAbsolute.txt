@@ -8,7 +8,6 @@ D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\bin\Debug\BAL.pdb
 D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\bin\Debug\DTO.pdb
 D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\bin\Debug\DAL.pdb
 D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\obj\Debug\PAL.csprojResolveAssemblyReference.cache
-D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\obj\Debug\PAL.Form1.resources
 D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\obj\Debug\PAL.Studentregistrationforrm.resources
 D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\obj\Debug\PAL.Properties.Resources.resources
 D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\obj\Debug\PAL.csproj.GenerateResource.Cache
@@ -34,3 +33,4 @@ D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\bin\Debug\ko\EntityFramework.SqlS
 D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
 D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\bin\Debug\zh-Hant\EntityFramework.SqlServer.resources.dll
+D:\Projects\WformCP\Rachit-WForm.git\WForm\PAL\obj\Debug\PAL.Employeeregistrationform.resources
